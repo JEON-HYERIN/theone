@@ -5,13 +5,14 @@
 	width: 100vw;
 	max-width: 100%;
 	z-index: 9;
+	background-color: $color-white;
+	border: 2px solid $color-black;
 	@include not-mobile {
 		height: 5rem;
 	}
 }
 .global-nav {
 	height: 100%;
-	border: 2px solid #000;
 	&__list {
 		display: flex;
 		height: 100%;
@@ -28,28 +29,27 @@
 		justify-content: flex-end;
 		align-items: flex-end;
 		padding: 0.75rem 0.75rem 0.75rem 1.75rem;
-		font-family: KunstBold, sans-serif;
-		font-weight: 700;
+		@include font-bold;
 		font-size: 1rem;
-    line-height: 1.5rem;
+		line-height: 1.5rem;
 		@include not-mobile {
 			padding-left: 3rem;
 			font-size: 1.875rem;
 			line-height: 1;
 		}
 		.global-nav__item--white & {
-			color: #000;
+			color: $color-black;
 		}
 		.global-nav__item--black & {
 			border-width: 0 2px;
 			border-style: solid;
-			border-color: #000;
-			background-color: #1f1f1f;
-			color: #efefef;
+			border-color: $color-black;
+			background-color: $color-dark-black;
+			color: $color-white;
 		}
 		.global-nav__item--red & {
-			color: #efefef;
-			background-color: #ef3205;
+			color: $color-white;
+			background-color: $color-primary;
 			transition-timing-function: cubic-bezier(.4,0,.2,1);
 			transition-property: background-color;
 			transition-duration: .3s;
@@ -57,8 +57,8 @@
 				padding-bottom: 14px;
 			}
 			&:hover {
-				color: #ef3205;
-				background-color: #000;
+				color: $color-primary;
+				background-color: $color-black;
 			}
 			svg {
 				fill: currentColor;
@@ -70,7 +70,7 @@
 		opacity: 0;
 		font-family: KunstRegular, sans-serif;
 		font-weight: 600;
-		color: #ef3205;
+		color: $color-primary;
 		transition-property: opacity, max-width;
 		transition-duration: .3s;
 		transition-timing-function: cubic-bezier(.4,0,.2,1);

@@ -12,7 +12,7 @@ body {
     font-feature-settings: normal;
     font-variation-settings: normal;
     -webkit-tap-highlight-color: transparent;
-	background-color: #efefef;
+	background-color: $color-white;
 	min-height: 3000px;
 }
 
@@ -27,4 +27,8 @@ body {
 	margin: -1px;
 	overflow: hidden;
 	clip: rect(0 0 0 0);
+  }
+
+  svg {
+    display: block;
   }
