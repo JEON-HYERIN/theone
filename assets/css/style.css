@@ -277,7 +277,7 @@ svg {
   align-items: center;
   padding-right: 5rem;
 }
-.section-order__item:nth-child(2) {
+.section-order__item:nth-child(2) .section-order__cta {
   border-width: 0 2px;
   border-style: solid;
   border-color: #000;
@@ -326,5 +326,46 @@ svg {
   .section-order__title {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+}
+
+.section-story {
+  padding: 6rem 1rem;
+}
+.section-story__inner {
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .section-story__inner {
+    width: 83.333333%;
+  }
+}
+@media screen and (min-width: 1536px) {
+  .section-story__inner {
+    width: 66.666667%;
+  }
+}
+.section-story__description {
+  font-size: 1.875rem;
+  line-height: 1.25;
+}
+@media screen and (min-width: 768px) {
+  .section-story__description {
+    font-size: 2.25rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .section-story__description {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-story__description {
+    font-size: 3.75rem;
+  }
+}
+@media screen and (min-width: 1536px) {
+  .section-story__description {
+    font-size: 4.5rem;
   }
 }

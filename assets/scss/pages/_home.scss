@@ -63,7 +63,7 @@
 		padding-right: 5rem;
 	}
 	
-	&__item:nth-child(2) {
+	&__item:nth-child(2) .section-order__cta {
 		border-width: 0 2px;
 		border-style: solid;
 		border-color: $color-black;
@@ -111,10 +111,38 @@
 			line-height: 2.25rem;
 		}
 	
-		@include desktop-large {
+		@include desktop-medium {
 			font-size: 2.25rem;
 			line-height: 2.5rem;
 		}
 	}
 }
 
+.section-story {
+	padding: 6rem 1rem;
+	&__inner {
+		margin: 0 auto;
+		@include not-mobile {
+			width: 83.333333%;
+		}
+		@include desktop-large {
+			width: 66.666667%;
+		}
+	}
+	&__description {
+		font-size: 1.875rem;
+		line-height: 1.25;
+		@include not-mobile {
+			font-size: 2.25rem;
+		}
+		@include desktop {
+			font-size: 3rem;
+		}
+		@include desktop-medium {
+			font-size: 3.75rem;
+		}
+		@include desktop-large {
+			font-size: 4.5rem;
+		}
+	}
+}

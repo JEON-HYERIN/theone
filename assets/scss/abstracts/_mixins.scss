@@ -6,6 +6,12 @@
 
 // media query
 @mixin desktop-large {
+  @media screen and (min-width: 1536px) {
+    @content;
+  }
+}
+
+@mixin desktop-medium {
   @media screen and (min-width: 1280px) {
     @content;
   }
