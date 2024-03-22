@@ -11,7 +11,9 @@ body {
     font-family: KunstRegular,sans-serif;
     font-feature-settings: normal;
     font-variation-settings: normal;
-    -webkit-tap-highlight-color: transparent
+    -webkit-tap-highlight-color: transparent;
+	background-color: #efefef;
+	min-height: 3000px;
 }
 
 #wrap {
