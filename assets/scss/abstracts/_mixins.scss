@@ -1,4 +1,8 @@
 // font
+@mixin font-medium {
+  font-family: KunstMedium, sans-serif;
+  font-weight: 500;
+}
 @mixin font-bold {
   font-family: KunstBold, sans-serif;
   font-weight: 700;

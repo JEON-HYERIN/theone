@@ -85,7 +85,7 @@ body {
   font-variation-settings: normal;
   -webkit-tap-highlight-color: transparent;
   background-color: #efefef;
-  min-height: 3000px;
+  min-height: 5000px;
 }
 
 #wrap {
@@ -229,7 +229,7 @@ svg {
   align-items: center;
   height: 100%;
 }
-.section-home__title {
+.section-home__headline {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -239,7 +239,7 @@ svg {
   line-height: 2.5rem;
 }
 @media screen and (min-width: 1024px) {
-  .section-home__title {
+  .section-home__headline {
     height: 16.666667%;
     font-size: 4.5rem;
     line-height: 1;
@@ -277,11 +277,6 @@ svg {
   align-items: center;
   padding-right: 5rem;
 }
-.section-order__item:nth-child(2) .section-order__cta {
-  border-width: 0 2px;
-  border-style: solid;
-  border-color: #000;
-}
 .section-order__cta {
   display: flex;
   justify-content: center;
@@ -293,6 +288,11 @@ svg {
   transition-property: background-color, color;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.section-order__item:nth-child(2) .section-order__cta {
+  border-width: 0 2px;
+  border-style: solid;
+  border-color: #000;
 }
 .section-order__cta:hover {
   background-color: #ef3205;
@@ -329,11 +329,9 @@ svg {
   }
 }
 
-.section-story {
-  padding: 6rem 1rem;
-}
 .section-story__inner {
   margin: 0 auto;
+  padding: 6rem 1rem;
 }
 @media screen and (min-width: 768px) {
   .section-story__inner {
@@ -367,5 +365,143 @@ svg {
 @media screen and (min-width: 1536px) {
   .section-story__description {
     font-size: 4.5rem;
+  }
+}
+.section-story__decoration video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(0.995);
+}
+
+.section-about__headline {
+  padding: 1rem;
+  font-family: KunstMedium, sans-serif;
+  font-weight: 500;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  white-space: nowrap;
+}
+@media screen and (min-width: 768px) {
+  .section-about__headline {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+.section-about__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 5rem;
+  border: 2px solid #000;
+}
+.section-about__item {
+  position: relative;
+  overflow: hidden;
+}
+.section-about__item:nth-child(2) {
+  border-width: 0 2px;
+  border-style: solid;
+  border-color: #000;
+}
+.section-about__textbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  pointer-events: none;
+}
+@media screen and (min-width: 768px) {
+  .section-about__textbox {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .section-about__textbox {
+    padding: 2.5rem 2.5rem 2.5rem 5rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-about__textbox {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .section-about__textbox {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+.section-about__item:hover + .section-about__item .section-about__title {
+  display: none;
+}
+.section-about__description {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.section-about__item:hover + .section-about__item .section-about__description {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+.section-about__thumbnail {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100%;
+}
+.section-about__thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.section-about__item:hover .section-about__thumbnail img {
+  transform: scale(1.25);
+}
+.section-about__cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.section-about__cover svg {
+  animation-duration: 200ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
