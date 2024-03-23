@@ -420,8 +420,7 @@
 	&__answer {
 		padding-left: 20px;
 		padding-right: 30px;
-    max-height: 0;
-		height: 0;
+		max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: max-height .2s ease, opacity .2s ease, margin-top .5s ease;
@@ -429,7 +428,6 @@
 			max-height: 1000px;
 			margin-top: 15px;
 			opacity: 1;
-			height: auto;
 		}
 	}
 }

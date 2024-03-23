@@ -123,7 +123,6 @@ body {
   font-variation-settings: normal;
   -webkit-tap-highlight-color: transparent;
   background-color: #efefef;
-  min-height: 20000px;
 }
 
 #wrap {
@@ -260,6 +259,77 @@ button:not(:focus-visible) {
   opacity: 1;
 }
 
+.footer {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  background-color: #ef3205;
+}
+@media screen and (min-width: 1024px) {
+  .footer {
+    height: 960px;
+    padding: 3.5rem;
+  }
+}
+.footer__row--bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.footer__address {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__address {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .footer__address {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+.footer-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+@media screen and (min-width: 1024px) {
+  .footer-nav__list {
+    flex-direction: row;
+  }
+}
+.footer-nav__link {
+  position: relative;
+  display: inline-block;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #efefef;
+}
+.footer-nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #efefef;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-nav__item:hover .footer-nav__link::after {
+  transform: scaleX(1);
+}
 .vertical-section {
   height: 100vh;
   padding-top: 5rem;
@@ -707,7 +777,6 @@ button:not(:focus-visible) {
   padding-left: 20px;
   padding-right: 30px;
   max-height: 0;
-  height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.2s ease, opacity 0.2s ease, margin-top 0.5s ease;
@@ -716,7 +785,6 @@ button:not(:focus-visible) {
   max-height: 1000px;
   margin-top: 15px;
   opacity: 1;
-  height: auto;
 }
 
 .section-banner {
