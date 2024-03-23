@@ -143,6 +143,13 @@
 		@include desktop-large {
 			font-size: 4.5rem;
 		}
+		.word {
+			opacity: .2;
+			&.on {
+				opacity: 1;
+			}
+		}
+		
 	}
 	&__decoration {
 		video {
@@ -170,7 +177,6 @@
 	&__list {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		margin-bottom: 5rem;
 		border: 2px solid $color-black;
 	}
 	&__item {
@@ -263,7 +269,7 @@
 		bottom: 0;
 		z-index: 1;
 		svg  {
-			//animation-name: move;
+			//`animation-name: move;
 			animation-duration: 200ms;
 			animation-iteration-count: infinite;
 			animation-timing-function: linear;
@@ -278,4 +284,90 @@
 	100% {
 		transform: translateX(-100%);
 	}
+}
+
+.section-ingredient {
+	width: 100vw;
+	max-width: 100%;
+	margin-top: 5rem;
+	border: 2px solid $color-black;
+	&__headline {
+		// display: flex;
+		// justify-content: flex-end;
+		// align-items: flex-end;
+		// min-height: 160px;
+		// padding: 1.25rem 1rem;
+		// border-bottom: 2px solid $color-black;
+		// @include font-medium;
+		// font-size: 1.875rem;
+		// line-height: 2.25rem;
+		// @include mobile {
+		// 	font-size: 2.25rem;
+		// 	line-height: 2.5rem;
+		// }
+		// @include not-mobile {
+		// 	padding-left: 3.5rem;
+		// 	padding-right: 3.5rem;
+		// }
+		// @include desktop {
+		// 	font-size: 3rem;
+		// 	line-height: 1;
+		// }
+		// @include desktop-medium {
+		// 	font-size: 3.75rem;
+		// 	line-height: 1;
+		// }
+	}
+	&__embedded {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		video {
+			display: block;
+			max-width: 100%;
+			object-fit: cover;
+			filter: brightness(0.995);
+		}
+	}
+}
+.section-detail {
+	width: 100vw;
+	max-width: 100%;
+	border: 2px solid $color-black;
+	@include not-mobile {
+		margin-top: 10rem;
+	}
+	.common-headline {}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		gap: 2rem;
+		@include not-mobile {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			padding: 3.5rem;
+		}
+		@include desktop-large {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+	&__item {
+		@include desktop {
+			font-size: 1.125rem;
+			line-height: 1.75rem;
+		}
+	}
+	&__row {
+		padding-top: .5rem;
+    padding-bottom: .5rem;
+		& + & {
+			display: flex;
+			justify-content: space-between;
+			border-top: 1px solid $color-black;
+		}
+	}
+	&__title {
+		@include font-medium;
+	}
+	&__text {}
 }

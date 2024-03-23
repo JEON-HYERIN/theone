@@ -6,12 +6,16 @@ const headTxt = new SplitType('.section-story__description', {
 	types: 'words'
 });
 
-const videoElem = document.querySelector('.section-story__decoration video');
+const video1 = document.querySelector('.section-story__decoration video');
 
-let progressRatio;
-
-let currentFrame;
-
+let currentTime = 0;
+let duration = 0;
+// video1.addEventListener('onloadeddata', function() {
+// 	currentTime = video1.currentTime;
+// 	duration = video1.duration;
+// 	// console.log(currentTime)
+// 	// console.log(duration)
+// })
 function init() {
 	window.addEventListener('scroll', function () {
 
@@ -20,13 +24,93 @@ function init() {
 		if (progressRatio < 0) progressRatio = 0;
 
 		if (progressRatio > 1) progressRatio = 1;
-		videoElem.currentTime = videoElem.duration * progressRatio;
-
+		video1.currentTime = video1.duration * progressRatio;
+		// console.log(video1.currentTime,video1.duration)
 	});
 
 }
-
+// init()
 window.addEventListener('load', init);
+
+
+ScrollTrigger.create({
+	trigger: '.section-story',
+	start: 'top top',
+	scrub: 0,
+	onUpdate: function(self) {
+		// const videoEl = document.querySelector('.section-story__decoration video');
+		// videoEl.currentTime = currentTime;
+		duration = video1.duration;
+		// currentTime = video1.currentTime;
+		currentTime = video1.duration * (self.progress * 2);
+		// console.log(currentTime)
+		// console.log(duration)
+		console.log()
+	},
+	// markers: true
+})
+
+
+ScrollTrigger.create({
+	trigger: '.section-story__description',
+	start: 'top top',
+	end: 'bottom top',
+	scrub: 0,
+	onUpdate: function(self) {
+		// const total = $('.section-story__description .word').length;
+		// const current = Math.round(((self.progress * total) ));
+		// const currentWord = $('.section-story__description .word').eq(current)
+		// if($('.section-story__description .word.on')) {
+		// 	$('.section-story__description .word').removeClass('on')
+		// }
+		// if(currentWord) {
+		// 	currentWord.addClass('on')
+		// }
+		// console.log(current)
+
+		imgEl = $('.section-story__description .word');
+    total = imgEl.length - 1;
+    currImg = Math.round(total-(self.progress * total));
+    curr = imgEl.eq(currImg);
+
+    if($('.section-story__description .word.on')) {
+      imgEl.removeClass('on');
+    }
+
+    if(curr) {
+      curr.addClass('on');
+    }
+	}
+})
+
+gsap.from('.section-story__description .word', {
+	scrollTrigger: {
+	trigger: '.section-story__description .word',
+
+	}
+})
+
+const tl = gsap.timeline({
+	trigger: '.section-story__description .word',
+	start: 'top top',
+	end: 'bottom top',
+	scrub: 0,
+	markers: true
+});
+// tl.fromTo('.section-story__description .word', {opacity: .2}, {opacity: 1})
+
+// gsap.fromTo('.section-story__description .word', 
+// 	{
+// 		opacity: .2
+// 	},
+// 	{
+// 		opacity: 1
+// 	}
+// )
+
+document.querySelectorAll('.section-story__description .word').forEach(function(element, index) {
+	tl.fromTo($(this),{opacity: .2,}, {opacity: 1})
+})
 
 
 $('.section-about__item').on('mouseenter', function() {
@@ -39,4 +123,15 @@ $('.section-about__item').on('mouseleave', function() {
 	//$(this).find('.section-about__item').removeAttr('style');
 	$(this).removeClass('.is-active');
 	//gsap.set('.section-about__title', {display: 'block'});
+})
+
+ScrollTrigger.create({
+	'trigger': '.section-ingredient',
+	'start': '-50% top',
+	scrub: 0,
+	onUpdate: function(self) {
+		$('.section-ingredient__embedded video').get(0).play(0);
+	},
+	toggleActions: 'play none none reset',
+	// markers: true
 })
