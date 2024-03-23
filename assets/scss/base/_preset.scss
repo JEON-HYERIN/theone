@@ -13,7 +13,7 @@ body {
     font-variation-settings: normal;
     -webkit-tap-highlight-color: transparent;
 	background-color: $color-white;
-	min-height: 8000px;
+	min-height: 20000px;
 }
 
 #wrap {
@@ -31,4 +31,12 @@ body {
 
   svg {
     display: block;
+  }
+
+  button {
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    &:focus, &:focus-visible {
+    }
   }

@@ -6,48 +6,41 @@ const headTxt = new SplitType('.section-story__description', {
 	types: 'words'
 });
 
-const video1 = document.querySelector('.section-story__decoration video');
-
-let currentTime = 0;
-let duration = 0;
+// const video1 = document.querySelector('.section-story__decoration video');
 // video1.addEventListener('onloadeddata', function() {
 // 	currentTime = video1.currentTime;
 // 	duration = video1.duration;
 // 	// console.log(currentTime)
 // 	// console.log(duration)
 // })
-function init() {
-	window.addEventListener('scroll', function () {
+// function init() {
+// 	window.addEventListener('scroll', function () {
 
-		progressRatio = scrollY / (document.body.offsetHeight - window.innerHeight);
+// 		progressRatio = scrollY / (document.body.offsetHeight - window.innerHeight);
 
-		if (progressRatio < 0) progressRatio = 0;
+// 		if (progressRatio < 0) progressRatio = 0;
 
-		if (progressRatio > 1) progressRatio = 1;
-		video1.currentTime = video1.duration * progressRatio;
-		// console.log(video1.currentTime,video1.duration)
-	});
+// 		if (progressRatio > 1) progressRatio = 1;
+// 		video1.currentTime = video1.duration * progressRatio;
+// 		// console.log(video1.currentTime,video1.duration)
+// 	});
 
-}
+// }
 // init()
-window.addEventListener('load', init);
+// window.addEventListener('load', init);
 
 
 ScrollTrigger.create({
 	trigger: '.section-story',
 	start: 'top top',
-	scrub: 0,
+	scrub: true,
 	onUpdate: function(self) {
-		// const videoEl = document.querySelector('.section-story__decoration video');
-		// videoEl.currentTime = currentTime;
-		duration = video1.duration;
-		// currentTime = video1.currentTime;
-		currentTime = video1.duration * (self.progress * 2);
-		// console.log(currentTime)
-		// console.log(duration)
-		console.log()
+		const video = document.querySelector('.section-story__decoration video');
+		progressRatio = self.progress * 2;
+		duration = 8;
+		video.currentTime = duration * progressRatio;
 	},
-	// markers: true
+	markers: true
 })
 
 
@@ -95,7 +88,7 @@ const tl = gsap.timeline({
 	start: 'top top',
 	end: 'bottom top',
 	scrub: 0,
-	markers: true
+	// markers: true
 });
 // tl.fromTo('.section-story__description .word', {opacity: .2}, {opacity: 1})
 
@@ -126,12 +119,31 @@ $('.section-about__item').on('mouseleave', function() {
 })
 
 ScrollTrigger.create({
-	'trigger': '.section-ingredient',
-	'start': '-50% top',
+	trigger: '.section-ingredient',
+	start: '-50% top',
 	scrub: 0,
 	onUpdate: function(self) {
 		$('.section-ingredient__embedded video').get(0).play(0);
 	},
 	toggleActions: 'play none none reset',
 	// markers: true
+})
+
+ScrollTrigger.create({
+	trigger: '.section-package__embedded video',
+	start: 'top top',
+	end: '+=3000',
+	pin: true,
+	scrub: true,
+	// markers: true,
+	onUpdate: function(self) {
+		const video = document.querySelector('.section-package__embedded video')
+		progressRatio = self.progress;
+		duration = 6;
+		video.currentTime = duration * progressRatio;
+	}
+})
+
+$('.section-faq__cta').click(function() {
+	$(this).parents('.section-faq__item').toggleClass('is-open');
 })
