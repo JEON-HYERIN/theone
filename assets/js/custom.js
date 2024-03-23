@@ -40,7 +40,7 @@ ScrollTrigger.create({
 		duration = 8;
 		video.currentTime = duration * progressRatio;
 	},
-	markers: true
+	// markers: true
 })
 
 
@@ -147,3 +147,13 @@ ScrollTrigger.create({
 $('.section-faq__cta').click(function() {
 	$(this).parents('.section-faq__item').toggleClass('is-open');
 })
+
+function getTime() {
+	const time = document.querySelector('.section-banner__time span');
+	const date = new Date();
+	const minutes = date.getMinutes().toString().padStart(2, '0');
+	const seconds = date.getSeconds().toString().padStart(2, '0');
+	time.innerText = `${minutes}:${seconds}`
+}
+getTime();
+setInterval(getTime, 1000);
