@@ -14,6 +14,12 @@ body {
   -webkit-tap-highlight-color: transparent;
   color: $color-black;
   background-color: $color-white;
+  &.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
 }
 
 #wrap {

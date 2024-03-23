@@ -125,6 +125,12 @@ body {
   color: #000;
   background-color: #efefef;
 }
+body.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
 
 #wrap {
   min-width: 320px;
@@ -331,6 +337,47 @@ button:not(:focus-visible) {
   transform: scaleX(1);
 }
 
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow: hidden;
+  background-color: #efefef;
+}
+.loading__inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1.5rem;
+  padding: 4rem;
+  width: 100%;
+  height: 100%;
+}
+.loading__text {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+@media screen and (min-width: 768px) {
+  .loading__text {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .loading__text {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .loading__text {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
 .vertical-section {
   height: 100vh;
   padding-top: 5rem;
@@ -696,6 +743,9 @@ button:not(:focus-visible) {
   font-weight: 500;
 }
 
+.section-package {
+  overflow: hidden;
+}
 .section-package__inner {
   display: flex;
   flex-direction: column-reverse;

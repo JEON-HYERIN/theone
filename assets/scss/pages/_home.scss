@@ -1,3 +1,42 @@
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+	overflow: hidden;
+	background-color: $color-white;
+	&__inner {
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-end;
+		gap: 1.5rem;
+		padding: 4rem;
+		width: 100%;
+		height: 100%;
+	}
+	&__text {
+		font-size: 1.25rem;
+    line-height: 1.75rem;
+		@include not-mobile {
+			font-size: 2.25rem;
+    	line-height: 2.5rem;
+		}
+		@include desktop {
+			font-size: 3rem;
+			line-height: 1;
+		}
+		@include desktop-medium {
+			font-size: 4.5rem;
+			line-height: 1;
+		}
+	}
+	&__icon {
+		svg {}
+	}
+}
+
 .vertical-section {
 	height: 100vh;
 	padding-top: 5rem;
@@ -387,6 +426,7 @@
 }
 
 .section-package {
+	overflow: hidden;
 	&__inner {
 		display: flex;
 		flex-direction: column-reverse;
