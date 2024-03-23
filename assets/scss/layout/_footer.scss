@@ -1,9 +1,9 @@
 .footer {
-  width: 100vw;
-  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100vw;
+  max-width: 100%;
   padding: 2rem 1rem;
   background-color: $color-primary;
   @include desktop {
@@ -61,10 +61,7 @@
         .footer-nav__item:hover & {
           transform: scaleX(1);
         }
+      }
     }
-  }
-}
-  &__logo {
-    img {}
   }
 }

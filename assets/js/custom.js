@@ -32,15 +32,16 @@ const headTxt = new SplitType('.section-story__description', {
 
 ScrollTrigger.create({
 	trigger: '.section-story',
-	start: 'top top',
+	start: '15% top',
+	end: '80% top',
 	scrub: true,
+	// markers: true,
 	onUpdate: function(self) {
 		const video = document.querySelector('.section-story__decoration video');
 		progressRatio = self.progress * 2;
 		duration = 8;
 		video.currentTime = duration * progressRatio;
 	},
-	// markers: true
 })
 
 
@@ -75,6 +76,19 @@ ScrollTrigger.create({
     }
 	}
 })
+
+const ani = gsap.timeline({
+	scrollTrigger: {
+		trigger: '.section-about',
+		start: '-130% top',
+		end: 'bottom center',
+		scrub:true,
+		// markers: true,
+	}
+});
+ani.addLabel('t1')
+.fromTo('.section-about__headline', {xPercent: 100}, {xPercent: -100, duration: 2})
+
 
 gsap.from('.section-story__description .word', {
 	scrollTrigger: {
@@ -134,7 +148,7 @@ ScrollTrigger.create({
 	start: 'top top',
 	end: '+=3000',
 	pin: true,
-	scrub: true,
+	scrub: 0,
 	// markers: true,
 	onUpdate: function(self) {
 		const video = document.querySelector('.section-package__embedded video')
