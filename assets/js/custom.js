@@ -156,7 +156,7 @@ $('.section-about__item').on('mouseleave', function() {
 
 ScrollTrigger.create({
 	trigger: '.section-ingredient',
-	start: '-50% top',
+	start: '-98% top',
 	scrub: 0,
 	onUpdate: function(self) {
 		$('.section-ingredient__embedded video').get(0).play(0);
