@@ -555,6 +555,26 @@
 
 	&__time {
 		color: $color-primary;
+		.section-banner__icon {
+			display: none;
+			margin-left: .5rem;
+		}
+		&.is-fixed {
+			position: fixed;
+			bottom: 0;
+			right: 1%;
+			z-index: 9;
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-end;
+			padding: 1rem;
+			font-size: 1.25rem;
+			line-height: 1;
+			color: $color-black;
+			.section-banner__icon {
+				display: block;
+			}
+		}
 	}
 
 	&__description {
@@ -609,5 +629,44 @@
 
 	100% {
 		transform: rotate(360deg);
+	}
+}
+
+.floating-object {
+	position: fixed;
+	bottom: 0;
+	right: 1%;
+	z-index: 9;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 1rem;
+	&.is-invisible {
+		display: none;
+	}
+	&__textbox {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+		text-align: right;
+	}
+	&__time {
+		display: flex;
+		align-items: flex-end;
+		.floating-object.is-hover & {
+			display: none;
+		}
+	}
+	&__copy {
+		padding: 1rem;
+		border: 2px solid $color-black;
+		background-color: $color-white;
+	}
+	&__icon {
+		margin-left: .5rem;
+		svg {
+			animation-name: rotate;
+			animation-iteration-count: infinite;
+			animation-duration: 2.5s;
+		}
 	}
 }

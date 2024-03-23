@@ -125,12 +125,6 @@ body {
   color: #000;
   background-color: #efefef;
 }
-body.is-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
 
 #wrap {
   min-width: 320px;
@@ -863,6 +857,26 @@ button:not(:focus-visible) {
 .section-banner__time {
   color: #ef3205;
 }
+.section-banner__time .section-banner__icon {
+  display: none;
+  margin-left: 0.5rem;
+}
+.section-banner__time.is-fixed {
+  position: fixed;
+  bottom: 0;
+  right: 1%;
+  z-index: 9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #000;
+}
+.section-banner__time.is-fixed .section-banner__icon {
+  display: block;
+}
 .section-banner__description {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -907,4 +921,42 @@ button:not(:focus-visible) {
   100% {
     transform: rotate(360deg);
   }
+}
+.floating-object {
+  position: fixed;
+  bottom: 0;
+  right: 1%;
+  z-index: 9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 1rem;
+}
+.floating-object.is-invisible {
+  display: none;
+}
+.floating-object__textbox {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  text-align: right;
+}
+.floating-object__time {
+  display: flex;
+  align-items: flex-end;
+}
+.floating-object.is-hover .floating-object__time {
+  display: none;
+}
+.floating-object__copy {
+  padding: 1rem;
+  border: 2px solid #000;
+  background-color: #efefef;
+}
+.floating-object__icon {
+  margin-left: 0.5rem;
+}
+.floating-object__icon svg {
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-duration: 2.5s;
 }

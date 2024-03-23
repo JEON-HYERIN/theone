@@ -11,9 +11,6 @@ gsap.to('.loading__text', {
 
 const loadingMotion = gsap.timeline({
 	// paused: true,
-	onStart: function() {
-		// $('body').addClass('is-fixed');
-	},
 	onComplete: function() {
 		$('body').removeAttr('style');
 	}
@@ -187,12 +184,73 @@ $('.section-faq__cta').click(function() {
 	$(this).parents('.section-faq__item').toggleClass('is-open');
 })
 
+
+let minutes = 0;
+let seconds = 0;
+
 function getTime() {
-	const time = document.querySelector('.section-banner__time span');
-	const date = new Date();
-	const minutes = date.getMinutes().toString().padStart(2, '0');
-	const seconds = date.getSeconds().toString().padStart(2, '0');
-	time.innerText = `${minutes}:${seconds}`
+	minutes = new Date().getMinutes().toString().padStart(2, '0');
+	seconds = new Date().getSeconds().toString().padStart(2, '0');
 }
-getTime();
-setInterval(getTime, 1000);
+
+
+function changeBannerText() {
+	const bannerTime = document.querySelector('.section-banner__time span');
+	getTime();
+	bannerTime.textContent = `${minutes}:${seconds}`;
+}
+changeBannerText();
+setInterval(changeBannerText, 1000);
+
+function changeFloatingText() {
+	const floatingTime = document.querySelector('.floating-object__time span');
+	getTime();
+	floatingTime.textContent = `${minutes}:${seconds}`;
+}
+changeFloatingText();
+setInterval(changeFloatingText, 1000);
+
+
+const tl2 = gsap.to('.section-banner__header', {
+	x: -50,
+})
+
+ScrollTrigger.create({
+	animation: tl2,
+	trigger: '.section-banner',
+	start: '-126% top',
+	end: 'bottom top',
+	scrub: 0,
+	onEnter: function() {
+		$('.floating-object').addClass('is-invisible');
+	},
+	onLeaveBack: function() {
+		$('.floating-object').removeClass('is-invisible');
+	},
+	// markers: true
+})
+
+$('.floating-object').on('mouseenter', function() {
+	$(this).addClass('is-hover');
+	const template = document.querySelector('template');
+	const clone = document.importNode(template.content, true);
+	const paragraphEl = clone.querySelector('.floating-object__copy');
+
+	if($('.floating-object__textbox').find('.floating-object__copy').length > 1) {
+		return;
+	} else {
+		$('.floating-object__textbox').append(paragraphEl);
+		paragraphTimeText();
+		setInterval(paragraphTimeText, 1000);
+		function paragraphTimeText() {
+			const paragraphTime = paragraphEl.querySelector('.floating-object__copy .time');
+			getTime();
+			paragraphTime.textContent = `${minutes}:${seconds}`;
+		}
+	}
+})
+$('.floating-object').on('mouseleave', function() {
+	$(this).removeClass('is-hover');
+	$('.floating-object__copy').remove();
+})
+
