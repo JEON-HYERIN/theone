@@ -148,7 +148,6 @@ html {
        tab-size: 4;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  scroll-behavior: smooth;
 }
 
 body {
