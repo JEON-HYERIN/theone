@@ -12,13 +12,17 @@
 		justify-content: flex-end;
 		align-items: flex-end;
 		gap: 1.5rem;
-		padding: 4rem;
+		padding: 1rem;
 		width: 100%;
 		height: 100%;
+		@include not-mobile {
+			padding: 4rem;
+		}
 	}
 	&__text {
 		font-size: 1.25rem;
     line-height: 1.75rem;
+		text-align: end;
 		@include not-mobile {
 			font-size: 2.25rem;
     	line-height: 2.5rem;
@@ -459,6 +463,7 @@
 .section-detail {
 	width: 100vw;
 	max-width: 100%;
+	margin-top: 9rem;
 	border: 2px solid $color-black;
 
 	@include not-mobile {
@@ -469,6 +474,7 @@
 		display: grid;
 		grid-template-columns: repeat(1, minmax(0, 1fr));
 		gap: 2rem;
+		padding: 1rem;
 
 		@include not-mobile {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -481,9 +487,16 @@
 	}
 
 	&__item {
+		white-space: nowrap;
 		@include desktop {
 			font-size: 1.125rem;
 			line-height: 1.75rem;
+		}
+		@media screen and (max-width: 1535px) {
+			.letter-wrapper {
+				display: inline-block;
+				animation: scrollHorizontal 10s linear infinite;
+			}
 		}
 	}
 
@@ -498,7 +511,24 @@
 	}
 
 	&__title {
+		width: 95%;
 		@include font-medium;
+		overflow: hidden;
+	}
+	&__text {
+		flex-shrink: 0;
+		overflow: hidden;
+		&:nth-child(1) {
+			width: 75%;
+		}
+	}
+}
+@keyframes scrollHorizontal {
+	0%, 100% {
+			transform: translate(2%)
+	}
+	50% {
+			transform: translate(-30%)
 	}
 }
 
@@ -514,7 +544,7 @@
 		flex-direction: column;
 		max-width: 1800px;
 		margin: 0 auto;
-		padding: 1.5rem 0;
+		padding: 1.5rem 1rem;
 		font-size: 1.875rem;
 		line-height: 2.25rem;
 
@@ -524,6 +554,8 @@
 		}
 
 		@include desktop {
+			padding-left: 3.5rem;
+			padding-right: 3.5rem;
 			font-size: 4.5rem;
 			line-height: 1;
 		}
@@ -531,17 +563,21 @@
 
 	&__embedded {
 		video {
-			display: block;
 			width: 100%;
-			height: 100vh;
 			object-fit: cover;
 			filter: brightness(0.995);
+			@include desktop2 {
+				height: 100vh;
+			}
 		}
 	}
 }
 
 .section-faq {
-	padding-top: 9rem;
+	padding-top: 2rem;
+	@include not-mobile {
+		padding-top: 9rem;
+	}
 
 	&__inner {
 		max-width: 1900px;
@@ -570,20 +606,18 @@
 		border-top: 1px solid $color-black;
 	}
 
-	&__question {
-		font-size: 18px;
-	}
-
 	&__cta {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
+		padding-right: 50px;
+		font-size: 18px;
 		text-align: left;
-
 		&::after {
 			content: '↑';
-			display: inline-block;
-			position: relative;
+			position: absolute;
+			top: 0;
 			right: 21px;
 			transform: rotate(180deg);
 			transition: transform .2s ease;
@@ -615,19 +649,26 @@
 
 	&__header {
 		position: relative;
-		right: 3%;
 		display: flex;
 		justify-content: flex-end;
 		align-items: flex-end;
 		gap: 1.5rem;
+		padding: 1rem;
 		height: 9rem;
-		padding: 2rem 1rem;
 		text-align: right;
+		@include desktop2 {
+			right: 3%;
+			padding: 2rem 1rem 2rem 4rem;
+		}
 	}
 
 	&__headline {
-		font-size: 3.75rem;
-		line-height: 1;
+		font-size: 1.875rem;
+		line-height: 2.25rem;
+		@include desktop2 {
+			font-size: 3.75rem;
+			line-height: 1;
+		}
 	}
 
 	&__time {
@@ -655,11 +696,18 @@
 	}
 
 	&__description {
-		font-size: 2.25rem;
-		line-height: 2.5rem;
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+		@include desktop2 {
+			font-size: 2.25rem;
+			line-height: 2.5rem;
+		}
 	}
 
 	&__icon {
+		@media screen and (max-width: 1024px) {
+			display: none;
+		}
 		svg {
 			animation-name: rotate;
 			animation-iteration-count: infinite;
@@ -670,9 +718,13 @@
 
 	&__images {
 		display: flex;
+		flex-direction: column-reverse;
 		width: 100vw;
 		max-width: 100%;
 		max-height: 700px;
+		@include not-mobile {
+			flex-direction: row;
+		}
 	}
 
 	&__image {
@@ -719,6 +771,9 @@
 	align-items: flex-end;
 	padding: 1rem;
 	&.is-invisible {
+		display: none;
+	}
+	@media screen and (max-width: 1024px) {
 		display: none;
 	}
 	&__textbox {

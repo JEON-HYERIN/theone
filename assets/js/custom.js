@@ -151,9 +151,7 @@ function initSwiper() {
 initSwiper();
 
 
-$(window).on('resize', function() {
-	initSwiper();
-})
+$(window).on('resize', initSwiper);
 
 gsap.from('.section-story__description .word', {
 	scrollTrigger: {
@@ -274,46 +272,56 @@ changeFloatingText();
 setInterval(changeFloatingText, 1000);
 
 
-const tl2 = gsap.to('.section-banner__header', {
-	x: -50,
+let mm3 = gsap.matchMedia();
+mm3.add("(min-width: 1025px)", () => {
+	const tl2 = gsap.to('.section-banner__header', {
+		x: -50,
+	})
+	
+	ScrollTrigger.create({
+		animation: tl2,
+		trigger: '.section-banner',
+		start: '-126% top',
+		end: 'bottom top',
+		scrub: 0,
+		onEnter: function() {
+			$('.floating-object').addClass('is-invisible');
+		},
+		onLeaveBack: function() {
+			$('.floating-object').removeClass('is-invisible');
+		},
+		// markers: true
+	})
 })
 
-ScrollTrigger.create({
-	animation: tl2,
-	trigger: '.section-banner',
-	start: '-126% top',
-	end: 'bottom top',
-	scrub: 0,
-	onEnter: function() {
-		$('.floating-object').addClass('is-invisible');
-	},
-	onLeaveBack: function() {
-		$('.floating-object').removeClass('is-invisible');
-	},
-	// markers: true
-})
-
-$('.floating-object').on('mouseenter', function() {
-	$(this).addClass('is-hover');
-	const template = document.querySelector('template');
-	const clone = document.importNode(template.content, true);
-	const paragraphEl = clone.querySelector('.floating-object__copy');
-
-	if($('.floating-object__textbox').find('.floating-object__copy').length > 1) {
-		return;
-	} else {
-		$('.floating-object__textbox').append(paragraphEl);
-		paragraphTimeText();
-		setInterval(paragraphTimeText, 1000);
-		function paragraphTimeText() {
-			const paragraphTime = paragraphEl.querySelector('.floating-object__copy .time');
-			getTime();
-			paragraphTime.textContent = `${minutes}:${seconds}`;
-		}
+$(window).on('resize', floatingObj);
+floatingObj();
+function floatingObj() {
+	const windowSize = $(window).width();
+	if(windowSize >= 1025) {
+		$('.floating-object').on('mouseenter', function() {
+			$(this).addClass('is-hover');
+			const template = document.querySelector('template');
+			const clone = document.importNode(template.content, true);
+			const paragraphEl = clone.querySelector('.floating-object__copy');
+		
+			if($('.floating-object__textbox').find('.floating-object__copy').length > 1) {
+				return;
+			} else {
+				$('.floating-object__textbox').append(paragraphEl);
+				paragraphTimeText();
+				setInterval(paragraphTimeText, 1000);
+				function paragraphTimeText() {
+					const paragraphTime = paragraphEl.querySelector('.floating-object__copy .time');
+					getTime();
+					paragraphTime.textContent = `${minutes}:${seconds}`;
+				}
+			}
+		})
+		$('.floating-object').on('mouseleave', function() {
+			$(this).removeClass('is-hover');
+			$('.floating-object__copy').remove();
+		})
 	}
-})
-$('.floating-object').on('mouseleave', function() {
-	$(this).removeClass('is-hover');
-	$('.floating-object__copy').remove();
-})
+}
 

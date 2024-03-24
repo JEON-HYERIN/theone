@@ -4,6 +4,7 @@
   justify-content: space-between;
   width: 100vw;
   max-width: 100%;
+  height: 700px;
   padding: 2rem 1rem;
   background-color: $color-primary;
   @include desktop {
@@ -13,8 +14,14 @@
   &__row {
     &--bottom {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: flex-end;
+      gap: 4rem;
+      @include desktop {
+        align-items: flex-end;
+        flex-direction: row;
+        gap: 0;
+      }
     }
   }
   &__address {
@@ -36,17 +43,21 @@
     &__list {
       display: flex;
       flex-direction: column;
+      align-items: flex-end;
       gap: 1.25rem;
       @include desktop {
         flex-direction: row;
+        align-items: stretch;
       }
+    }
+    &__item {
+      font-size: 1.25rem;
+      line-height: 1;
+      color: $color-white;
     }
     &__link {
       position: relative;
       display: inline-block;
-      font-size: 1.25rem;
-      line-height: 1;
-      color: $color-white;
       &::after {
         content: '';
         position: absolute;
