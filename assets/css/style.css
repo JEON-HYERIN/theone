@@ -584,9 +584,12 @@ video {
   }
 }
 
+.section-story {
+  padding: 0 1rem;
+}
 .section-story__inner {
+  padding: 6rem 0 4rem;
   margin: 0 auto;
-  padding: 6rem 1rem 4rem;
 }
 @media screen and (min-width: 768px) {
   .section-story__inner {
@@ -628,6 +631,9 @@ video {
 }
 .section-story__description .word.on {
   opacity: 1;
+}
+.section-story__decoration {
+  margin: 0 -1rem;
 }
 .section-story__decoration video {
   width: 100%;

@@ -80,7 +80,7 @@ let mm = gsap.matchMedia();
 mm.add("(min-width: 1025px)", () => {
 	ScrollTrigger.create({
 		trigger: '.section-story',
-		start: '15% top',
+		start: '45% top',
 		end: '80% top',
 		scrub: true,
 		// markers: true,

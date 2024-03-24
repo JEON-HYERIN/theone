@@ -182,9 +182,10 @@
 }
 
 .section-story {
+	padding: 0 1rem;
 	&__inner {
+		padding: 6rem 0 4rem;
 		margin: 0 auto;
-		padding: 6rem 1rem 4rem;
 
 		@include not-mobile {
 			width: 83.333333%;
@@ -226,6 +227,7 @@
 	}
 
 	&__decoration {
+		margin: 0 -1rem;
 		video {
 			width: 100%;
 			object-fit: cover;
