@@ -56,19 +56,23 @@ $(window).on('resize', changeVideoAttr);
 
 function changeVideoAttr() {
 	const video = $('.section-story__decoration video');
-
-	video.get(0).load();
+	const source = $('.section-story__decoration video source');
 	
 	if($(window).width() <= 1024) {
 		video.attr({
 			autoplay: true,
 			loop: true
 		});
+		source.attr('src', './assets/videos/section-story-deco-mo.mp4');
+		
 		video.get(0).play();
 	} else {
+		source.attr('src', './assets/videos/section-story-deco.mp4');
 		video.removeAttr('autoplay loop');
 		video.get(0).pause();
 	}
+
+	video.get(0).load();
 }
 
 let mm = gsap.matchMedia();
@@ -194,10 +198,22 @@ $('.section-about__item').on('mouseleave', function() {
 	//gsap.set('.section-about__title', {display: 'block'});
 })
 
-$(window).on('resize', function() {
-	$('.section-ingredient__embedded video').get(0).load();
-	$('.section-package__embedded video').get(0).load();
-});
+changeVideoAttr2();
+$(window).on('resize', changeVideoAttr2);
+
+function changeVideoAttr2() {
+	const video = $('.section-ingredient__embedded video');
+	const source = $('.section-ingredient__embedded video source');
+	
+	if($(window).width() <= 1024) {
+		source.attr('src', './assets/videos/section-ingredient-mo.mp4');
+	} else {
+		source.attr('src', './assets/videos/section-ingredient.mp4');
+	}
+
+	video.get(0).load();
+}
+
 ScrollTrigger.create({
 	trigger: '.section-ingredient',
 	start: '-98% top',
@@ -208,6 +224,22 @@ ScrollTrigger.create({
 	toggleActions: 'play none none reset',
 	// markers: true
 })
+
+changeVideoAttr3();
+$(window).on('resize', changeVideoAttr3);
+
+function changeVideoAttr3() {
+	const video = $('.section-package__embedded video');
+	const source = $('.section-package__embedded video source');
+	
+	if($(window).width() <= 1024) {
+		source.attr('src', './assets/videos/section-package-mo.mp4');
+	} else {
+		source.attr('src', './assets/videos/section-package.mp4');
+	}
+
+	video.get(0).load();
+}
 
 let mm2 = gsap.matchMedia();
 mm2.add("(min-width: 1025px)", () => {

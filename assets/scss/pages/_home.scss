@@ -347,10 +347,12 @@
 		position: relative;
 		overflow: hidden;
 		padding-bottom: 100%;
-		.section-about__item.swiper-slide-active & {
-			border-width: 0 2px;
-			border-style: solid;
-			border-color: $color-black;
+		@media screen and (max-width: 1024px) {
+			.section-about__item.swiper-slide-active & {
+				border-width: 0 2px;
+				border-style: solid;
+				border-color: $color-black;
+			}
 		}
 		img {
 			position: absolute;
@@ -369,10 +371,10 @@
 
 			@media screen and (max-width: 1024px) {
 				opacity: .25;
-			}
-			@at-root .section-about__item.swiper-slide-active & {
-				opacity: 1;
-				transform: scale(1.25);
+				@at-root .section-about__item.swiper-slide-active & {
+					opacity: 1;
+					transform: scale(1.25);
+				}
 			}
 		}
 	}

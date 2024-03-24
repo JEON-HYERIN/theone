@@ -749,10 +749,12 @@ video {
   overflow: hidden;
   padding-bottom: 100%;
 }
-.section-about__item.swiper-slide-active .section-about__thumbnail {
-  border-width: 0 2px;
-  border-style: solid;
-  border-color: #000;
+@media screen and (max-width: 1024px) {
+  .section-about__item.swiper-slide-active .section-about__thumbnail {
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: #000;
+  }
 }
 .section-about__thumbnail img {
   position: absolute;
@@ -773,12 +775,11 @@ video {
   .section-about__thumbnail img {
     opacity: 0.25;
   }
+  .section-about__item.swiper-slide-active .section-about__thumbnail img {
+    opacity: 1;
+    transform: scale(1.25);
+  }
 }
-.section-about__item.swiper-slide-active .section-about__thumbnail img {
-  opacity: 1;
-  transform: scale(1.25);
-}
-
 .section-about__cover {
   display: none;
   position: absolute;
