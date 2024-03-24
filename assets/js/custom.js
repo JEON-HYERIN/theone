@@ -358,3 +358,24 @@ function floatingObj() {
 	}
 }
 
+$('.section-order__item--popup').on('click', function() {
+	$('body').css('overflow', 'hidden');
+	gsap.to('.popup', {
+		autoAlpha: 1,
+		duration: .4,
+		onComplete: function() {
+			$('.popup').addClass('is-open');
+		}
+	})
+})
+
+$('.popup__close, .popup__button--close, .popup__dimmed').on('click', function() {
+	gsap.to('.popup', {
+		autoAlpha: 0,
+		duration: .4,
+		onComplete: function() {
+			$('.popup').removeClass('is-open');
+			$('body').removeAttr('style');
+		}
+	})
+})
