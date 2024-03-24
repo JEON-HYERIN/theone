@@ -1,5 +1,5 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -8,7 +8,7 @@ body {
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
-  font-family: KunstRegular,sans-serif;
+  font-family: KunstRegular, sans-serif;
   font-feature-settings: normal;
   font-variation-settings: normal;
   -webkit-tap-highlight-color: transparent;
@@ -17,26 +17,33 @@ body {
 }
 
 #wrap {
-	min-width: 320px;
-  }
-  
+  min-width: 320px;
+}
+
 .blind {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-  }
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
 
-  svg {
-    display: block;
-  }
+svg {
+  display: block;
+}
 
-  button {
-    padding: 0;
-    cursor: pointer;
-    &:not(:focus-visible) {
-      outline: none;
-    }
+button {
+  padding: 0;
+  cursor: pointer;
+
+  &:not(:focus-visible) {
+    outline: none;
   }
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}

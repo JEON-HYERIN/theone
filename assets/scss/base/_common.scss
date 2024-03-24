@@ -25,3 +25,17 @@
     line-height: 1;
   }
 }
+
+.common-display-pc {
+  display: none;
+  @include not-mobile {
+    display: block;
+  }
+}
+
+.common-display-mo {
+  display: block;
+  @include not-mobile {
+    display: none;
+  }
+}

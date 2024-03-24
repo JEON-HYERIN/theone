@@ -36,6 +36,24 @@
   }
 }
 
+.common-display-pc {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .common-display-pc {
+    display: block;
+  }
+}
+
+.common-display-mo {
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .common-display-mo {
+    display: none;
+  }
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -151,6 +169,12 @@ button:not(:focus-visible) {
   outline: none;
 }
 
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
 @font-face {
   font-family: KunstRegular;
   src: url(../fonts/Kunst-72-Regular.otf) format("opentype");
@@ -172,10 +196,12 @@ button:not(:focus-visible) {
   font-weight: 900;
 }
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100vw;
   max-width: 100%;
+  height: 2.75rem;
   z-index: 9;
   background-color: #efefef;
   border: 2px solid #000;
@@ -206,13 +232,12 @@ button:not(:focus-visible) {
   font-family: KunstBold, sans-serif;
   font-weight: 700;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1;
 }
 @media screen and (min-width: 768px) {
   .global-nav__link {
     padding-left: 3rem;
     font-size: 1.875rem;
-    line-height: 1;
   }
 }
 .global-nav__item--white .global-nav__link {
@@ -224,6 +249,7 @@ button:not(:focus-visible) {
   border-color: #000;
   background-color: #1f1f1f;
   color: #efefef;
+  white-space: nowrap;
 }
 .global-nav__item--red .global-nav__link {
   color: #efefef;
@@ -242,7 +268,19 @@ button:not(:focus-visible) {
   background-color: #000;
 }
 .global-nav__item--red .global-nav__link svg {
+  width: 100%;
+  height: 100%;
+  max-width: 121px;
+  max-height: 15px;
   fill: currentColor;
+}
+@media screen and (min-width: 768px) {
+  .global-nav__item--red .global-nav__link svg {
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+  }
 }
 .global-nav__arrow {
   max-width: 0;
@@ -374,7 +412,12 @@ button:not(:focus-visible) {
 }
 .vertical-section {
   height: 100vh;
-  padding-top: 5rem;
+  padding-top: 2.75rem;
+}
+@media screen and (min-width: 768px) {
+  .vertical-section {
+    padding-top: 5rem;
+  }
 }
 
 .section-home {
@@ -406,8 +449,16 @@ button:not(:focus-visible) {
 }
 .section-home__embedded {
   display: flex;
-  align-items: flex-end;
-  height: 83.333333%;
+  height: 66.666667%;
+}
+@media screen and (min-width: 1024px) {
+  .section-home__embedded {
+    align-items: flex-end;
+    height: 83.333333%;
+  }
+}
+.section-home__embedded video {
+  max-height: 100%;
 }
 
 .section-order {
@@ -416,6 +467,7 @@ button:not(:focus-visible) {
 }
 .section-order__list {
   display: flex;
+  flex-wrap: wrap;
   height: 100%;
   border: 2px solid #000;
 }
@@ -434,13 +486,20 @@ button:not(:focus-visible) {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 5rem;
+  min-width: 44%;
+  padding-right: 1rem;
+  border-top: 2px solid #000;
+}
+@media screen and (min-width: 1024px) {
+  .section-order__item--logo {
+    padding-right: 5rem;
+    border-top: none;
+  }
 }
 .section-order__cta {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
   width: 100%;
   height: 100%;
   color: #000;
@@ -448,10 +507,20 @@ button:not(:focus-visible) {
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+@media screen and (min-width: 1024px) {
+  .section-order__cta {
+    gap: 1rem;
+  }
+}
 .section-order__item:nth-child(2) .section-order__cta {
-  border-width: 0 2px;
+  border-left-width: 2px;
   border-style: solid;
   border-color: #000;
+}
+@media screen and (min-width: 1024px) {
+  .section-order__item:nth-child(2) .section-order__cta {
+    border-right-width: 2px;
+  }
 }
 .section-order__cta:hover {
   background-color: #ef3205;
@@ -490,7 +559,7 @@ button:not(:focus-visible) {
 
 .section-story__inner {
   margin: 0 auto;
-  padding: 4rem 1rem;
+  padding: 6rem 1rem 4rem;
 }
 @media screen and (min-width: 768px) {
   .section-story__inner {
@@ -505,6 +574,7 @@ button:not(:focus-visible) {
 .section-story__description {
   font-size: 1.875rem;
   line-height: 1.25;
+  color: #1f1f1f;
 }
 @media screen and (min-width: 768px) {
   .section-story__description {
