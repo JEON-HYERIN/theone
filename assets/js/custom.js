@@ -237,7 +237,7 @@ mm2.add("(max-width: 1024px)", () => {
 		onUpdate: function(self) {
 			$('.section-package__embedded video').get(0).play();
 		},
-		toggleActions: 'none none none none',
+		toggleActions: 'play none none none',
 	})
 })
 

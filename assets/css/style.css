@@ -135,18 +135,23 @@ input, select, button {
   box-sizing: border-box;
 }
 
-body {
+html {
+  font-size: 16px;
   line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
   font-family: KunstRegular, sans-serif;
   font-feature-settings: normal;
   font-variation-settings: normal;
-  -webkit-tap-highlight-color: transparent;
   color: #000;
   background-color: #efefef;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  line-height: inherit;
 }
 
 #wrap {
@@ -322,11 +327,11 @@ video {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
   gap: 4rem;
 }
 @media screen and (min-width: 1024px) {
   .footer__row--bottom {
-    align-items: flex-end;
     flex-direction: row;
     gap: 0;
   }
@@ -682,21 +687,6 @@ video {
     border-color: #000;
   }
 }
-@media screen and (max-width: 1024px) {
-  .section-about__item.swiper-slide {
-    opacity: 0.25;
-    transition-property: transform;
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .section-about__item.swiper-slide-active {
-    opacity: 1;
-    transform: scale(1.25);
-    border-width: 0 2px;
-    border-style: solid;
-    border-color: #000;
-  }
-}
 .section-about__textbox {
   position: absolute;
   top: 0;
@@ -759,6 +749,11 @@ video {
   overflow: hidden;
   padding-bottom: 100%;
 }
+.section-about__item.swiper-slide-active .section-about__thumbnail {
+  border-width: 0 2px;
+  border-style: solid;
+  border-color: #000;
+}
 .section-about__thumbnail img {
   position: absolute;
   top: 0;
@@ -774,6 +769,16 @@ video {
 .section-about__item:hover .section-about__thumbnail img {
   transform: scale(1.25);
 }
+@media screen and (max-width: 1024px) {
+  .section-about__thumbnail img {
+    opacity: 0.25;
+  }
+}
+.section-about__item.swiper-slide-active .section-about__thumbnail img {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
 .section-about__cover {
   display: none;
   position: absolute;
