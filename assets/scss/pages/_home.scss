@@ -75,6 +75,7 @@
 	&__embedded {
 		display: flex;
 		height: 66.666667%;
+		clip-path: inset(0 .5px);
 		@include desktop {
 			align-items: flex-end;
 			height: 83.333333%;

@@ -477,6 +477,7 @@ video {
 .section-home__embedded {
   display: flex;
   height: 66.666667%;
+  clip-path: inset(0 0.5px);
 }
 @media screen and (min-width: 1024px) {
   .section-home__embedded {
