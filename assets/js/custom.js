@@ -131,8 +131,29 @@ const ani = gsap.timeline({
 	}
 });
 ani.addLabel('t1')
-.fromTo('.section-about__headline', {xPercent: 100}, {xPercent: -100, duration: 2})
+.fromTo('.section-about__headline', {xPercent: 100}, {xPercent: -100, duration: 2});
 
+let aboutSwiper = undefined;
+function initSwiper() {
+	const windowSize = $(window).width();
+
+	if(windowSize <= 1024 && aboutSwiper == undefined) {
+		aboutSwiper = new Swiper('.section-about .swiper', {
+			loop: true,
+			centeredSlides: true,
+			slidesPerview: 3
+		})
+	} else if (windowSize > 1024 && aboutSwiper != undefined) {
+		aboutSwiper.destroy();
+		aboutSwiper = undefined;
+	}
+}
+initSwiper();
+
+
+$(window).on('resize', function() {
+	initSwiper();
+})
 
 gsap.from('.section-story__description .word', {
 	scrollTrigger: {
@@ -214,7 +235,7 @@ mm2.add("(max-width: 1024px)", () => {
 		start: '-65% top',
 		end: 'center center',
 		// scrub: 0,
-		markers: true,
+		// markers: true,
 		onUpdate: function(self) {
 			$('.section-package__embedded video').get(0).play();
 		},

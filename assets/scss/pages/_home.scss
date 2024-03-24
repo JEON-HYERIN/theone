@@ -32,9 +32,6 @@
 			line-height: 1;
 		}
 	}
-	&__icon {
-		svg {}
-	}
 }
 
 .vertical-section {
@@ -227,16 +224,19 @@
 
 	&__decoration {
 		video {
-			display: block;
 			width: 100%;
-			height: 100%;
 			object-fit: cover;
 			filter: brightness(0.995);
+			@include desktop2 {
+				height: 100%;
+			}
 		}
 	}
 }
 
 .section-about {
+	width: 100vw;
+	max-width: 100%;
 	overflow: hidden;
 	&__headline {
 		padding: 1rem;
@@ -251,10 +251,19 @@
 		}
 	}
 
+	.swiper {
+		@media screen and (max-width: 1024px) {
+			padding: 0 25%;
+			border: 2px solid $color-black;
+		}
+	}
+
 	&__list {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		border: 2px solid $color-black;
+		@include desktop2 {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			border: 2px solid $color-black;
+		}
 	}
 
 	&__item {
@@ -262,9 +271,26 @@
 		overflow: hidden;
 
 		&:nth-child(2) {
-			border-width: 0 2px;
-			border-style: solid;
-			border-color: $color-black;
+				@include desktop2 {
+				border-width: 0 2px;
+				border-style: solid;
+				border-color: $color-black;
+			}
+		}
+		&.swiper-slide {
+				@media screen and (max-width: 1024px) {
+				opacity: .25;
+				transition-property: transform;
+				transition-duration: .3s;
+				transition-timing-function: cubic-bezier(.4,0,.2,1);
+				&-active {
+					opacity: 1;
+					transform: scale(1.25);
+					border-width: 0 2px;
+					border-style: solid;
+					border-color: $color-black;
+				}
+			}
 		}
 	}
 
@@ -284,12 +310,11 @@
 		line-height: 1.75rem;
 		pointer-events: none;
 
-		@include not-mobile {
-			font-size: 1.5rem;
-			line-height: 2rem;
+		@media screen and (max-width: 1024px) {
+			display: none;
 		}
 
-		@include desktop {
+		@include desktop2 {
 			padding: 2.5rem 2.5rem 2.5rem 5rem;
 			font-size: 1.875rem;
 			line-height: 2.25rem;
@@ -300,7 +325,7 @@
 			line-height: 2.5rem;
 		}
 
-		@include desktop {
+		@include desktop-large {
 			font-size: 3rem;
 			line-height: 1;
 		}
@@ -353,6 +378,7 @@
 	}
 
 	&__cover {
+		display: none;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -365,6 +391,36 @@
 			animation-duration: 200ms;
 			animation-iteration-count: infinite;
 			animation-timing-function: linear;
+		}
+	}
+
+	&__marquee {
+		height: 178px;
+		overflow: hidden;
+		background-color: $color-primary;
+		@include desktop2 {
+			display: none;
+		}
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&__copy {
+		display: flex;
+		align-items: flex-end;
+		height: 14rem;
+		padding: 1rem 1.5rem 1rem 1rem;
+		@include font-medium;
+		font-size: 1.5rem;
+    line-height: 2rem;
+		text-align: right;
+		@include not-mobile {
+			font-size: 1.875rem;
+    	line-height: 2.25rem;
+		}
+		@include desktop2 {
+			display: none;
 		}
 	}
 }
