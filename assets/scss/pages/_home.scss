@@ -232,7 +232,7 @@
 			width: 100%;
 			object-fit: cover;
 			filter: brightness(0.995);
-			@include desktop2 {
+			@include desktop {
 				height: 100%;
 			}
 		}
@@ -257,14 +257,14 @@
 	}
 
 	.swiper {
-		@media screen and (max-width: 1024px) {
+		@include tablet {
 			padding: 0 25%;
 			border: 2px solid $color-black;
 		}
 	}
 
 	&__list {
-		@include desktop2 {
+		@include desktop {
 			display: grid;
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			border: 2px solid $color-black;
@@ -276,7 +276,7 @@
 		overflow: hidden;
 
 		&:nth-child(2) {
-				@include desktop2 {
+				@include desktop {
 				border-width: 0 2px;
 				border-style: solid;
 				border-color: $color-black;
@@ -299,11 +299,11 @@
 		line-height: 1.75rem;
 		pointer-events: none;
 
-		@media screen and (max-width: 1024px) {
+		@include tablet {
 			display: none;
 		}
 
-		@include desktop2 {
+		@include desktop {
 			padding: 2.5rem 2.5rem 2.5rem 5rem;
 			font-size: 1.875rem;
 			line-height: 2.25rem;
@@ -348,7 +348,7 @@
 		position: relative;
 		overflow: hidden;
 		padding-bottom: 100%;
-		@media screen and (max-width: 1024px) {
+		@include tablet {
 			.section-about__item.swiper-slide-active & {
 				border-width: 0 2px;
 				border-style: solid;
@@ -370,7 +370,7 @@
 				transform: scale(1.25);
 			}
 
-			@media screen and (max-width: 1024px) {
+			@include tablet {
 				opacity: .25;
 				@at-root .section-about__item.swiper-slide-active & {
 					opacity: 1;
@@ -401,7 +401,7 @@
 		height: 178px;
 		overflow: hidden;
 		background-color: $color-primary;
-		@include desktop2 {
+		@include desktop {
 			display: none;
 		}
 		svg {
@@ -422,7 +422,7 @@
 			font-size: 1.875rem;
     	line-height: 2.25rem;
 		}
-		@include desktop2 {
+		@include desktop {
 			display: none;
 		}
 	}
@@ -565,7 +565,7 @@
 			width: 100%;
 			object-fit: cover;
 			filter: brightness(0.995);
-			@include desktop2 {
+			@include desktop {
 				height: 100vh;
 			}
 		}
@@ -655,7 +655,7 @@
 		padding: 1rem;
 		height: 9rem;
 		text-align: right;
-		@include desktop2 {
+		@include desktop {
 			right: 3%;
 			padding: 2rem 1rem 2rem 4rem;
 		}
@@ -664,7 +664,7 @@
 	&__headline {
 		font-size: 1.875rem;
 		line-height: 2.25rem;
-		@include desktop2 {
+		@include desktop {
 			font-size: 3.75rem;
 			line-height: 1;
 		}
@@ -697,14 +697,14 @@
 	&__description {
 		font-size: 1.25rem;
 		line-height: 1.75rem;
-		@include desktop2 {
+		@include desktop {
 			font-size: 2.25rem;
 			line-height: 2.5rem;
 		}
 	}
 
 	&__icon {
-		@media screen and (max-width: 1024px) {
+		@include tablet {
 			display: none;
 		}
 		svg {
@@ -772,7 +772,7 @@
 	&.is-invisible {
 		display: none;
 	}
-	@media screen and (max-width: 1024px) {
+	@include tablet {
 		display: none;
 	}
 	&__textbox {

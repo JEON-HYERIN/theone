@@ -59,7 +59,7 @@ function changeVideoAttr() {
 	const video = $('.section-story__decoration video');
 	const source = $('.section-story__decoration video source');
 	
-	if($(window).width() <= 1024) {
+	if($(window).width() <= 1023) {
 		video.attr({
 			autoplay: true,
 			loop: true
@@ -77,7 +77,7 @@ function changeVideoAttr() {
 }
 
 let mm = gsap.matchMedia();
-mm.add("(min-width: 1025px)", () => {
+mm.add("(min-width: 1024px)", () => {
 	ScrollTrigger.create({
 		trigger: '.section-story',
 		start: '45% top',
@@ -142,13 +142,13 @@ let aboutSwiper = undefined;
 function initSwiper() {
 	const windowSize = $(window).width();
 
-	if(windowSize <= 1024 && aboutSwiper == undefined) {
+	if(windowSize <= 1023 && aboutSwiper == undefined) {
 		aboutSwiper = new Swiper('.section-about .swiper', {
 			loop: true,
 			centeredSlides: true,
 			slidesPerview: 3
 		})
-	} else if (windowSize > 1024 && aboutSwiper != undefined) {
+	} else if (windowSize >= 1024 && aboutSwiper != undefined) {
 		aboutSwiper.destroy();
 		aboutSwiper = undefined;
 	}
@@ -206,7 +206,7 @@ function changeVideoAttr2() {
 	const video = $('.section-ingredient__embedded video');
 	const source = $('.section-ingredient__embedded video source');
 	
-	if($(window).width() <= 1024) {
+	if($(window).width() <= 1023) {
 		source.attr('src', './assets/videos/section-ingredient-mo.mp4');
 	} else {
 		source.attr('src', './assets/videos/section-ingredient.mp4');
@@ -233,7 +233,7 @@ function changeVideoAttr3() {
 	const video = $('.section-package__embedded video');
 	const source = $('.section-package__embedded video source');
 	
-	if($(window).width() <= 1024) {
+	if($(window).width() <= 1023) {
 		source.attr('src', './assets/videos/section-package-mo.mp4');
 	} else {
 		source.attr('src', './assets/videos/section-package.mp4');
@@ -243,7 +243,7 @@ function changeVideoAttr3() {
 }
 
 let mm2 = gsap.matchMedia();
-mm2.add("(min-width: 1025px)", () => {
+mm2.add("(min-width: 1024px)", () => {
 	ScrollTrigger.create({
 		trigger: '.section-package__embedded video',
 		start: 'top top',
@@ -260,7 +260,7 @@ mm2.add("(min-width: 1025px)", () => {
 	})
 });
 
-mm2.add("(max-width: 1024px)", () => {
+mm2.add("(max-width: 1023px)", () => {
 	ScrollTrigger.create({
 		trigger: '.section-package__embedded video',
 		start: '-65% top',
@@ -306,7 +306,7 @@ setInterval(changeFloatingText, 1000);
 
 
 let mm3 = gsap.matchMedia();
-mm3.add("(min-width: 1025px)", () => {
+mm3.add("(min-width: 1024px)", () => {
 	const tl2 = gsap.to('.section-banner__header', {
 		x: -50,
 	})
@@ -331,7 +331,7 @@ $(window).on('resize', floatingObj);
 floatingObj();
 function floatingObj() {
 	const windowSize = $(window).width();
-	if(windowSize >= 1025) {
+	if(windowSize >= 1024) {
 		$('.floating-object').on('mouseenter', function() {
 			$(this).addClass('is-hover');
 			const template = document.querySelector('template');
