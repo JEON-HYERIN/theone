@@ -1,6 +1,11 @@
 $('a[href="#"]').on('click', function (e) {
 	e.preventDefault();
-})
+});
+
+// 새로고침 시 사용자 스크롤 위치 저장하지 않음
+if (history.scrollRestoration) {
+  history.scrollRestoration = "manual";
+}
 
 gsap.to('.loading__text', {
 	duration: 1,
@@ -24,32 +29,28 @@ loadingMotion
 .set('body', {overflow: 'auto'},"+=1")
 .to('.loading', {yPercent: -100, duration: .5, ease: "power2.out"},"+=0")
 .set('.loading', {display: 'none'}, "+=.5")
+
 const headTxt = new SplitType('.section-story__description', {
 	types: 'words'
 });
 
-// const video1 = document.querySelector('.section-story__decoration video');
-// video1.addEventListener('onloadeddata', function() {
-// 	currentTime = video1.currentTime;
-// 	duration = video1.duration;
-// 	// console.log(currentTime)
-// 	// console.log(duration)
-// })
-// function init() {
-// 	window.addEventListener('scroll', function () {
+$('.global-nav__item--white').on('click', function() {
+	const headerHeight = $('.header').outerHeight(); 
+	const position = ($('.section-order').offset().top) - headerHeight;
+	
+	$('html, body').stop().animate({scrollTop: position}, 700);
+})
+$('.global-nav__item--black').on('click', function() {
+	const headlineHeight = $('.section-about__headline').outerHeight();
+	const position = $('.section-about').offset().top - headlineHeight;
 
-// 		progressRatio = scrollY / (document.body.offsetHeight - window.innerHeight);
-
-// 		if (progressRatio < 0) progressRatio = 0;
-
-// 		if (progressRatio > 1) progressRatio = 1;
-// 		video1.currentTime = video1.duration * progressRatio;
-// 		// console.log(video1.currentTime,video1.duration)
-// 	});
-
-// }
-// init()
-// window.addEventListener('load', init);
+	$('html, body').stop().animate({scrollTop: position}, 700);
+})
+$('.global-nav__item--red').on('click', function() {
+	const position = $('.section-home').offset().top;
+	
+	$('html, body').stop().animate({scrollTop: position}, 700);
+})
 
 changeVideoAttr();
 $(window).on('resize', changeVideoAttr);
@@ -128,14 +129,14 @@ ScrollTrigger.create({
 const ani = gsap.timeline({
 	scrollTrigger: {
 		trigger: '.section-about',
-		start: '-130% top',
-		end: 'bottom center',
-		scrub:true,
+		start: '-80% top',
+		end: '80%',
+		scrub: true,
 		// markers: true,
 	}
 });
 ani.addLabel('t1')
-.fromTo('.section-about__headline', {xPercent: 100}, {xPercent: -100, duration: 2});
+.fromTo('.section-about__headline', {xPercent: 100}, {xPercent: -100, duration: 10});
 
 let aboutSwiper = undefined;
 function initSwiper() {

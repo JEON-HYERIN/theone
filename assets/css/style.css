@@ -148,6 +148,7 @@ html {
        tab-size: 4;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -206,9 +207,8 @@ video {
   font-weight: 900;
 }
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100vw;
   max-width: 100%;
   height: 2.75rem;
@@ -232,8 +232,9 @@ video {
 .global-nav__item--white {
   flex-grow: 1;
 }
-.global-nav__link {
+.global-nav__button {
   position: relative;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -245,15 +246,15 @@ video {
   line-height: 1;
 }
 @media screen and (min-width: 768px) {
-  .global-nav__link {
+  .global-nav__button {
     padding-left: 3rem;
     font-size: 1.875rem;
   }
 }
-.global-nav__item--white .global-nav__link {
+.global-nav__item--white .global-nav__button {
   color: #000;
 }
-.global-nav__item--black .global-nav__link {
+.global-nav__item--black .global-nav__button {
   border-width: 0 2px;
   border-style: solid;
   border-color: #000;
@@ -261,7 +262,7 @@ video {
   color: #efefef;
   white-space: nowrap;
 }
-.global-nav__item--red .global-nav__link {
+.global-nav__item--red .global-nav__button {
   color: #efefef;
   background-color: #ef3205;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -269,15 +270,15 @@ video {
   transition-duration: 0.3s;
 }
 @media screen and (min-width: 768px) {
-  .global-nav__item--red .global-nav__link {
+  .global-nav__item--red .global-nav__button {
     padding-bottom: 14px;
   }
 }
-.global-nav__item--red .global-nav__link:hover {
+.global-nav__item--red .global-nav__button:hover {
   color: #ef3205;
   background-color: #000;
 }
-.global-nav__item--red .global-nav__link svg {
+.global-nav__item--red .global-nav__button svg {
   width: 100%;
   height: 100%;
   max-width: 121px;
@@ -285,7 +286,7 @@ video {
   fill: currentColor;
 }
 @media screen and (min-width: 768px) {
-  .global-nav__item--red .global-nav__link svg {
+  .global-nav__item--red .global-nav__button svg {
     width: auto;
     height: auto;
     max-width: none;
@@ -302,7 +303,7 @@ video {
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.global-nav__link:hover .global-nav__arrow {
+.global-nav__button:hover .global-nav__arrow {
   max-width: 2rem;
   opacity: 1;
 }
@@ -441,12 +442,11 @@ video {
 }
 
 .vertical-section {
-  height: 100vh;
-  padding-top: 2.75rem;
+  height: calc(100vh - 2.75rem);
 }
 @media screen and (min-width: 768px) {
   .vertical-section {
-    padding-top: 5rem;
+    height: calc(100vh - 5rem);
   }
 }
 

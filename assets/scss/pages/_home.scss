@@ -39,10 +39,9 @@
 }
 
 .vertical-section {
-	height: 100vh;
-	padding-top: 2.75rem;
+	height: calc(100vh - 2.75rem);
 	@include not-mobile {
-		padding-top: 5rem;
+		height: calc(100vh - 5rem);
 	}
 }
 
