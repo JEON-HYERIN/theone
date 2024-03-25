@@ -116,6 +116,7 @@
 		min-width: 44%;
 		padding-right: 1rem;
 		border-top: 2px solid $color-black;
+		background-color: $color-white;
 		@include desktop {
 			padding-right: 5rem;
 			border-top: none;
