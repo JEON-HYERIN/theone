@@ -80,13 +80,13 @@ let mm = gsap.matchMedia();
 mm.add("(min-width: 1024px)", () => {
 	ScrollTrigger.create({
 		trigger: '.section-story',
-		start: '45% top',
+		start: '18% top',
 		end: '80% top',
 		scrub: true,
 		// markers: true,
 		onUpdate: function(self) {
 			const video = document.querySelector('.section-story__decoration video');
-			progressRatio = self.progress * 2;
+			progressRatio = self.progress;
 			duration = 8;
 			video.currentTime = duration * progressRatio;
 		}
