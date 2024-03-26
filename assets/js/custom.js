@@ -94,37 +94,37 @@ mm.add("(min-width: 1024px)", () => {
 })
 
 
-ScrollTrigger.create({
-	trigger: '.section-story__description',
-	start: 'top top',
-	end: 'bottom top',
-	scrub: 0,
-	onUpdate: function(self) {
-		// const total = $('.section-story__description .word').length;
-		// const current = Math.round(((self.progress * total) ));
-		// const currentWord = $('.section-story__description .word').eq(current)
-		// if($('.section-story__description .word.on')) {
-		// 	$('.section-story__description .word').removeClass('on')
-		// }
-		// if(currentWord) {
-		// 	currentWord.addClass('on')
-		// }
-		// console.log(current)
+// ScrollTrigger.create({
+// 	trigger: '.section-story__description',
+// 	start: 'top top',
+// 	end: 'bottom top',
+// 	scrub: 0,
+// 	onUpdate: function(self) {
+// 		const total = $('.section-story__description .word').length;
+// 		const current = Math.round(((self.progress * total) ));
+// 		const currentWord = $('.section-story__description .word').eq(current)
+// 		if($('.section-story__description .word.on')) {
+// 			$('.section-story__description .word').removeClass('on')
+// 		}
+// 		if(currentWord) {
+// 			currentWord.addClass('on')
+// 		}
+// 		console.log(current)
 
-		imgEl = $('.section-story__description .word');
-    total = imgEl.length - 1;
-    currImg = Math.round(total-(self.progress * total));
-    curr = imgEl.eq(currImg);
+// 		imgEl = $('.section-story__description .word');
+//     total = imgEl.length - 1;
+//     currImg = Math.round(total-(self.progress * total));
+//     curr = imgEl.eq(currImg);
 
-    if($('.section-story__description .word.on')) {
-      imgEl.removeClass('on');
-    }
+//     if($('.section-story__description .word.on')) {
+//       imgEl.removeClass('on');
+//     }
 
-    if(curr) {
-      curr.addClass('on');
-    }
-	}
-})
+//     if(curr) {
+//       curr.addClass('on');
+//     }
+// 	}
+// })
 
 const ani = gsap.timeline({
 	scrollTrigger: {
@@ -218,7 +218,7 @@ function changeVideoAttr2() {
 ScrollTrigger.create({
 	trigger: '.section-ingredient',
 	start: '-98% top',
-	scrub: 0,
+	// scrub: 0,
 	onUpdate: function(self) {
 		$('.section-ingredient__embedded video').get(0).play();
 	},
@@ -270,7 +270,7 @@ mm2.add("(max-width: 1023px)", () => {
 		onUpdate: function(self) {
 			$('.section-package__embedded video').get(0).play();
 		},
-		toggleActions: 'play none none none',
+		toggleActions: 'play none none reset',
 	})
 })
 
