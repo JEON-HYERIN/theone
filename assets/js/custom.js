@@ -30,10 +30,6 @@ loadingMotion
 .to('.loading', {yPercent: -100, duration: .5, ease: "power2.out"},"+=0")
 .set('.loading', {display: 'none'}, "+=.5")
 
-const headTxt = new SplitType('.section-story__description', {
-	types: 'words'
-});
-
 $('.global-nav__item--white').on('click', function() {
 	const headerHeight = $('.header').outerHeight(); 
 	const position = ($('.section-order').offset().top) - headerHeight;
@@ -93,39 +89,6 @@ mm.add("(min-width: 1024px)", () => {
 	})
 })
 
-
-// ScrollTrigger.create({
-// 	trigger: '.section-story__description',
-// 	start: 'top top',
-// 	end: 'bottom top',
-// 	scrub: 0,
-// 	onUpdate: function(self) {
-// 		const total = $('.section-story__description .word').length;
-// 		const current = Math.round(((self.progress * total) ));
-// 		const currentWord = $('.section-story__description .word').eq(current)
-// 		if($('.section-story__description .word.on')) {
-// 			$('.section-story__description .word').removeClass('on')
-// 		}
-// 		if(currentWord) {
-// 			currentWord.addClass('on')
-// 		}
-// 		console.log(current)
-
-// 		imgEl = $('.section-story__description .word');
-//     total = imgEl.length - 1;
-//     currImg = Math.round(total-(self.progress * total));
-//     curr = imgEl.eq(currImg);
-
-//     if($('.section-story__description .word.on')) {
-//       imgEl.removeClass('on');
-//     }
-
-//     if(curr) {
-//       curr.addClass('on');
-//     }
-// 	}
-// })
-
 const ani = gsap.timeline({
 	scrollTrigger: {
 		trigger: '.section-about',
@@ -156,6 +119,10 @@ function initSwiper() {
 initSwiper();
 
 $(window).on('resize', initSwiper);
+
+const headTxt = new SplitType('.section-story__description', {
+	types: 'words'
+});
 
 const words = document.querySelectorAll('.section-story__description .word');
 words.forEach(function(word, index) {
@@ -348,3 +315,17 @@ $('.modal__close, .modal__button--close, .modal__dimmed').on('click', function()
 		}
 	})
 })
+
+$(window).on('resize', hoverAbout);
+function hoverAbout() {
+	if($(window).width() >= 1024) {
+		$('.section-about__item').on('mouseenter', function() {
+			$(this).addClass('is-hover').siblings().removeClass('is-hover');
+		});
+		
+		$('.section-about__item').on('mouseleave', function() {
+			$('.section-about__item').removeClass('is-hover');
+		});
+	}
+}
+hoverAbout();
