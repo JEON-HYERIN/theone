@@ -278,32 +278,40 @@ $('.section-faq__cta').click(function() {
 	$(this).parents('.section-faq__item').toggleClass('is-open');
 })
 
+// 스톱워치
+let defaultTime = 0;
+let timerStart;
+window.addEventListener('load', function() {
+	defaultTime = new Date().getTime();
+});
 
-let minutes = 0;
-let seconds = 0;
-
-function getTime() {
-	minutes = new Date().getMinutes().toString().padStart(2, '0');
-	seconds = new Date().getSeconds().toString().padStart(2, '0');
-}
-
-
-function changeBannerText() {
+timerStart = () => {
+	const nowTime = new Date().getTime();
+	const newTime = new Date(nowTime - defaultTime);
+	const minutes = String(newTime.getMinutes()).padStart(2, '0');
+	const seconds = String(newTime.getSeconds()).padStart(2, '0');
+	const floatingTime = document.querySelector('.floating-clock__time span');
 	const bannerTime = document.querySelector('.section-banner__time span');
-	getTime();
-	bannerTime.textContent = `${minutes}:${seconds}`;
-}
-changeBannerText();
-setInterval(changeBannerText, 1000);
+	const floatingDescTime = document.querySelector('.floating-clock__copy .time');
 
-function changeFloatingText() {
-	const floatingTime = document.querySelector('.floating-object__time span');
-	getTime();
-	floatingTime.textContent = `${minutes}:${seconds}`;
-}
-changeFloatingText();
-setInterval(changeFloatingText, 1000);
+	setTimeout(() => {
+		floatingTime.textContent = `${minutes}:${seconds}`;
+		bannerTime.textContent = `${minutes}:${seconds}`;
+		floatingDescTime.textContent = `${minutes}:${seconds}`;
 
+		timerStart();
+	}, 1000)
+}
+timerStart();
+
+$(window).on('scroll', function() {
+	const scroll = $(window).scrollTop();
+	if(scroll > 0) {
+		$('.floating-clock').removeClass('is-invisible');
+	} else {
+		$('.floating-clock').addClass('is-invisible');
+	}
+})
 
 let mm3 = gsap.matchMedia();
 mm3.add("(min-width: 1024px)", () => {
@@ -314,16 +322,16 @@ mm3.add("(min-width: 1024px)", () => {
 	ScrollTrigger.create({
 		animation: tl2,
 		trigger: '.section-banner',
-		start: '-126% top',
+		start: 'top bottom',
 		end: 'bottom top',
 		scrub: 0,
+		// markers: true,
 		onEnter: function() {
-			$('.floating-object').addClass('is-invisible');
+			$('.floating-clock').css('display', 'none');
 		},
 		onLeaveBack: function() {
-			$('.floating-object').removeClass('is-invisible');
-		},
-		// markers: true
+			$('.floating-clock').removeAttr('style');
+		}
 	})
 })
 
@@ -332,49 +340,36 @@ floatingObj();
 function floatingObj() {
 	const windowSize = $(window).width();
 	if(windowSize >= 1024) {
-		$('.floating-object').on('mouseenter', function() {
-			$(this).addClass('is-hover');
-			const template = document.querySelector('template');
-			const clone = document.importNode(template.content, true);
-			const paragraphEl = clone.querySelector('.floating-object__copy');
-		
-			if($('.floating-object__textbox').find('.floating-object__copy').length > 1) {
-				return;
-			} else {
-				$('.floating-object__textbox').append(paragraphEl);
-				paragraphTimeText();
-				setInterval(paragraphTimeText, 1000);
-				function paragraphTimeText() {
-					const paragraphTime = paragraphEl.querySelector('.floating-object__copy .time');
-					getTime();
-					paragraphTime.textContent = `${minutes}:${seconds}`;
-				}
-			}
+		$('.floating-clock').on('mouseenter', function() {
+			const tl = gsap.timeline({});
+			tl.set('.floating-clock__time', {display: 'none'}, "+=0")
+			.set('.floating-clock__copy', {display: 'block'}, "+=0")
 		})
-		$('.floating-object').on('mouseleave', function() {
-			$(this).removeClass('is-hover');
-			$('.floating-object__copy').remove();
+		$('.floating-clock').on('mouseleave', function() {
+			const tl = gsap.timeline({});
+			tl.set('.floating-clock__time', {display: 'block'}, "+=0")
+			.set('.floating-clock__copy', {display: 'none'}, "+=0")
 		})
 	}
 }
 
-$('.section-order__item--popup').on('click', function() {
+$('.section-order__item--modal').on('click', function() {
 	$('body').css('overflow', 'hidden');
-	gsap.to('.popup', {
+	gsap.to('.modal', {
 		autoAlpha: 1,
 		duration: .4,
 		onComplete: function() {
-			$('.popup').addClass('is-open');
+			$('.modal').addClass('is-open');
 		}
 	})
 })
 
-$('.popup__close, .popup__button--close, .popup__dimmed').on('click', function() {
-	gsap.to('.popup', {
+$('.modal__close, .modal__button--close, .modal__dimmed').on('click', function() {
+	gsap.to('.modal', {
 		autoAlpha: 0,
 		duration: .4,
 		onComplete: function() {
-			$('.popup').removeClass('is-open');
+			$('.modal').removeClass('is-open');
 			$('body').removeAttr('style');
 		}
 	})
