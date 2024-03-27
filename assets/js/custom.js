@@ -155,49 +155,23 @@ function initSwiper() {
 }
 initSwiper();
 
-
 $(window).on('resize', initSwiper);
 
-gsap.from('.section-story__description .word', {
-	scrollTrigger: {
-	trigger: '.section-story__description .word',
-
-	}
-})
-
-const tl = gsap.timeline({
-	trigger: '.section-story__description .word',
-	start: 'top top',
-	end: 'bottom top',
-	scrub: 0,
-	// markers: true
+const words = document.querySelectorAll('.section-story__description .word');
+words.forEach(function(word, index) {
+	gsap.from(word, {
+		opacity: .2,
+		stagger: .1,
+		scrollTrigger :{
+			trigger: word,
+			start: 'top 60%',
+			end: 'bottom 60%',
+			scrub: 0,
+			// markers: true
+		}
+	})
 });
-// tl.fromTo('.section-story__description .word', {opacity: .2}, {opacity: 1})
 
-// gsap.fromTo('.section-story__description .word', 
-// 	{
-// 		opacity: .2
-// 	},
-// 	{
-// 		opacity: 1
-// 	}
-// )
-
-document.querySelectorAll('.section-story__description .word').forEach(function(element, index) {
-	tl.fromTo($(this),{opacity: .2,}, {opacity: 1})
-})
-
-$('.section-about__item').on('mouseenter', function() {
-	//aboutHover.play();
-	$(this).addClass('.is-active');
-	//gsap.set('.section-about__title', {display: 'none'});
-})
-$('.section-about__item').on('mouseleave', function() {
-	//aboutLeave.play();
-	//$(this).find('.section-about__item').removeAttr('style');
-	$(this).removeClass('.is-active');
-	//gsap.set('.section-about__title', {display: 'block'});
-})
 
 changeVideoAttr2();
 $(window).on('resize', changeVideoAttr2);
