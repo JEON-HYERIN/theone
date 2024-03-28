@@ -142,22 +142,22 @@ mm.add("(min-width: 1024px)", () => {
 	})
 })
 mm.add("(min-width: 1024px)", () => {
-	const tl2 = gsap.to('.banner__header', {
-		x: -50,
-	})
-	
 	ScrollTrigger.create({
-		animation: tl2,
 		trigger: '.banner',
 		start: 'top bottom',
 		end: 'bottom top',
 		scrub: 0,
 		// markers: true,
 		onEnter: function() {
-			$('.floating-clock').css('display', 'none');
+			$('.floating-clock').addClass('is-static');
+			gsap.to('.banner__header', {
+				'margin-right': 30,
+				duration: .7
+			})
 		},
 		onLeaveBack: function() {
-			$('.floating-clock').removeAttr('style');
+			$('.banner__header').removeAttr('style');
+			$('.floating-clock').removeClass('is-static');
 		}
 	})
 })

@@ -1083,10 +1083,6 @@ video {
 .banner__time {
   color: #ef3205;
 }
-.banner__time .banner__icon {
-  display: none;
-  margin-left: 0.5rem;
-}
 .banner__description {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1096,16 +1092,6 @@ video {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
-}
-@media screen and (max-width: 1023px) {
-  .banner__icon {
-    display: none;
-  }
-}
-.banner__icon svg {
-  animation-name: rotate;
-  animation-iteration-count: infinite;
-  animation-duration: 2.5s;
 }
 .banner__images {
   display: flex;
@@ -1165,6 +1151,10 @@ video {
 .floating-clock.is-invisible {
   display: none;
 }
+.floating-clock.is-static {
+  position: static;
+  padding: 0;
+}
 @media screen and (max-width: 1023px) {
   .floating-clock {
     display: none;
@@ -1174,6 +1164,9 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
   text-align: right;
+}
+.is-static .floating-clock__textbox {
+  display: none;
 }
 .floating-clock__time {
   display: flex;

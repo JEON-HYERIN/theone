@@ -676,10 +676,6 @@
 
 	&__time {
 		color: $color-primary;
-		.banner__icon {
-			display: none;
-			margin-left: .5rem;
-		}
 	}
 
 	&__description {
@@ -688,18 +684,6 @@
 		@include desktop {
 			font-size: 2.25rem;
 			line-height: 2.5rem;
-		}
-	}
-
-	&__icon {
-		@include tablet {
-			display: none;
-		}
-		svg {
-			animation-name: rotate;
-			animation-iteration-count: infinite;
-			animation-duration: 2.5s;
-			// animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
 		}
 	}
 
@@ -764,6 +748,10 @@
 	&.is-invisible {
 		display: none;
 	}
+	&.is-static {
+		position: static;
+		padding: 0;
+	}
 	@include tablet {
 		display: none;
 	}
@@ -771,6 +759,9 @@
 		font-size: 1.25rem;
 		line-height: 1.75rem;
 		text-align: right;
+		.is-static & {
+			display: none;
+		}
 	}
 	&__time {
 		display: flex;
