@@ -909,11 +909,8 @@ video {
     line-height: 1.75rem;
   }
 }
-@media screen and (max-width: 1535px) {
-  .section-detail__item .letter-wrapper {
-    display: inline-block;
-    animation: scrollHorizontal 10s linear infinite;
-  }
+.section-detail__item .letter-wrapper.scroll-move {
+  animation: scrollHorizontal 10s linear infinite;
 }
 .section-detail__row {
   padding: 0.5rem 0;
@@ -1054,10 +1051,10 @@ video {
   opacity: 1;
 }
 
-.section-banner {
+.banner {
   padding-top: 4rem;
 }
-.section-banner__header {
+.banner__header {
   position: relative;
   display: flex;
   justify-content: flex-end;
@@ -1068,49 +1065,49 @@ video {
   text-align: right;
 }
 @media screen and (min-width: 1024px) {
-  .section-banner__header {
+  .banner__header {
     right: 3%;
     padding: 2rem 1rem 2rem 4rem;
   }
 }
-.section-banner__headline {
+.banner__headline {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 @media screen and (min-width: 1024px) {
-  .section-banner__headline {
+  .banner__headline {
     font-size: 3.75rem;
     line-height: 1;
   }
 }
-.section-banner__time {
+.banner__time {
   color: #ef3205;
 }
-.section-banner__time .section-banner__icon {
+.banner__time .banner__icon {
   display: none;
   margin-left: 0.5rem;
 }
-.section-banner__description {
+.banner__description {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 @media screen and (min-width: 1024px) {
-  .section-banner__description {
+  .banner__description {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
 }
 @media screen and (max-width: 1023px) {
-  .section-banner__icon {
+  .banner__icon {
     display: none;
   }
 }
-.section-banner__icon svg {
+.banner__icon svg {
   animation-name: rotate;
   animation-iteration-count: infinite;
   animation-duration: 2.5s;
 }
-.section-banner__images {
+.banner__images {
   display: flex;
   flex-direction: column-reverse;
   width: 100vw;
@@ -1118,25 +1115,25 @@ video {
   max-height: 700px;
 }
 @media screen and (min-width: 768px) {
-  .section-banner__images {
+  .banner__images {
     flex-direction: row;
   }
 }
-.section-banner__image {
+.banner__image {
   height: 250px;
 }
 @media screen and (min-width: 768px) {
-  .section-banner__image {
+  .banner__image {
     height: auto;
   }
-  .section-banner__image:nth-child(1) {
+  .banner__image:nth-child(1) {
     width: 58.333333%;
   }
-  .section-banner__image:nth-child(2) {
+  .banner__image:nth-child(2) {
     width: 41.666667%;
   }
 }
-.section-banner__image img {
+.banner__image img {
   display: block;
   width: 100%;
   height: 100%;

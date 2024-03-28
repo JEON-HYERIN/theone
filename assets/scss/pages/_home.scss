@@ -496,9 +496,8 @@
 			font-size: 1.125rem;
 			line-height: 1.75rem;
 		}
-		@media screen and (max-width: 1535px) {
-			.letter-wrapper {
-				display: inline-block;
+		.letter-wrapper {
+			&.scroll-move {
 				animation: scrollHorizontal 10s linear infinite;
 			}
 		}
@@ -648,7 +647,7 @@
 	}
 }
 
-.section-banner {
+.banner {
 	padding-top: 4rem;
 
 	&__header {
@@ -677,7 +676,7 @@
 
 	&__time {
 		color: $color-primary;
-		.section-banner__icon {
+		.banner__icon {
 			display: none;
 			margin-left: .5rem;
 		}

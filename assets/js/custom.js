@@ -79,6 +79,7 @@ mm.add("(min-width: 1024px)", () => {
 		// markers: true,
 		onUpdate: function(self) {
 			const video = document.querySelector('.section-story__decoration video');
+
 			progressRatio = self.progress;
 			duration = 8;
 			video.currentTime = duration * progressRatio;
@@ -141,13 +142,13 @@ mm.add("(min-width: 1024px)", () => {
 	})
 })
 mm.add("(min-width: 1024px)", () => {
-	const tl2 = gsap.to('.section-banner__header', {
+	const tl2 = gsap.to('.banner__header', {
 		x: -50,
 	})
 	
 	ScrollTrigger.create({
 		animation: tl2,
-		trigger: '.section-banner',
+		trigger: '.banner',
 		start: 'top bottom',
 		end: 'bottom top',
 		scrub: 0,
@@ -239,7 +240,7 @@ timerStart = () => {
 	const minutes = String(newTime.getMinutes()).padStart(2, '0');
 	const seconds = String(newTime.getSeconds()).padStart(2, '0');
 	const floatingTime = document.querySelector('.floating-clock__time span');
-	const bannerTime = document.querySelector('.section-banner__time span');
+	const bannerTime = document.querySelector('.banner__time span');
 	const floatingDescTime = document.querySelector('.floating-clock__copy .time');
 
 	setTimeout(() => {
@@ -303,6 +304,8 @@ $('.modal__close, .modal__button--close, .modal__dimmed').on('click', function()
 	})
 })
 
+// about list mouse on & off event class toggle
+hoverAbout();
 $(window).on('resize', hoverAbout);
 function hoverAbout() {
 	if($(window).width() >= 1024) {
@@ -315,4 +318,30 @@ function hoverAbout() {
 		});
 	}
 }
-hoverAbout();
+
+// detail section scroll move animation
+detectWidth();
+$(window).on('resize', detectWidth);
+
+function detectWidth() {
+	$('.section-detail__text').each(function() {
+		const parentWidth = $(this).outerWidth();
+		const childWidth = $(this).find('.letter-wrapper').outerWidth();
+	
+		if(childWidth >= parentWidth) {
+			$(this).find('.letter-wrapper').addClass('scroll-move');
+		} else {
+			$(this).find('.letter-wrapper').removeClass('scroll-move');
+		}
+	})
+	$('.section-detail__title').each(function() {
+		const parentWidth = $(this).outerWidth();
+		const childWidth = $(this).find('.letter-wrapper').outerWidth();
+	
+		if(childWidth >= parentWidth) {
+			$(this).find('.letter-wrapper').addClass('scroll-move');
+		} else {
+			$(this).find('.letter-wrapper').removeClass('scroll-move');
+		}
+	})
+}
