@@ -8,8 +8,6 @@ html {
   font-family: KunstRegular, sans-serif;
   font-feature-settings: normal;
   font-variation-settings: normal;
-  color: $color-black;
-  background-color: $color-white;
   tab-size: 4;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
@@ -17,6 +15,8 @@ html {
 
 body {
   line-height: inherit;
+  color: $color-black;
+  background-color: $color-white;
 }
 
 #wrap {

@@ -141,8 +141,6 @@ html {
   font-family: KunstRegular, sans-serif;
   font-feature-settings: normal;
   font-variation-settings: normal;
-  color: #000;
-  background-color: #efefef;
   -moz-tab-size: 4;
     -o-tab-size: 4;
        tab-size: 4;
@@ -152,6 +150,8 @@ html {
 
 body {
   line-height: inherit;
+  color: #000;
+  background-color: #f0eef0;
 }
 
 #wrap {
@@ -212,7 +212,7 @@ video {
   max-width: 100%;
   height: 2.75rem;
   z-index: 9;
-  background-color: #efefef;
+  background-color: #f0eef0;
   border: 2px solid #000;
 }
 @media screen and (min-width: 768px) {
@@ -258,11 +258,11 @@ video {
   border-style: solid;
   border-color: #000;
   background-color: #1f1f1f;
-  color: #efefef;
+  color: #f0eef0;
   white-space: nowrap;
 }
 .global-nav__item--red .global-nav__button {
-  color: #efefef;
+  color: #f0eef0;
   background-color: #ef3205;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: background-color;
@@ -370,7 +370,7 @@ video {
 .footer-nav__item {
   font-size: 1.25rem;
   line-height: 1;
-  color: #efefef;
+  color: #f0eef0;
 }
 .footer-nav__link {
   position: relative;
@@ -383,7 +383,7 @@ video {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #efefef;
+  background-color: #f0eef0;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -400,7 +400,7 @@ video {
   bottom: 0;
   z-index: 20;
   overflow: hidden;
-  background-color: #efefef;
+  background-color: #f0eef0;
 }
 .loading__inner {
   display: flex;
@@ -522,7 +522,7 @@ video {
   min-width: 44%;
   padding-right: 1rem;
   border-top: 2px solid #000;
-  background-color: #efefef;
+  background-color: #f0eef0;
 }
 @media screen and (min-width: 1024px) {
   .section-order__item--logo {
@@ -558,7 +558,7 @@ video {
 }
 .section-order__cta:hover {
   background-color: #ef3205;
-  color: #efefef;
+  color: #f0eef0;
 }
 .section-order__icon {
   display: block;
@@ -692,7 +692,7 @@ video {
   }
 }
 .section-about__item.is-hover + .section-about__item .section-about__textbox {
-  background-color: #efefef;
+  background-color: #f0eef0;
 }
 .section-about__textbox {
   position: absolute;
@@ -1186,7 +1186,7 @@ video {
   display: none;
   padding: 1rem;
   border: 2px solid #000;
-  background-color: #efefef;
+  background-color: #f0eef0;
 }
 .floating-clock__icon {
   margin-left: 0.5rem;
@@ -1221,7 +1221,7 @@ video {
   z-index: 1;
   max-width: 90%;
   border: 2px solid #000;
-  background-color: #efefef;
+  background-color: #f0eef0;
 }
 @media screen and (min-width: 768px) {
   .modal__content {
@@ -1325,15 +1325,15 @@ video {
 .modal__button--close {
   color: #000;
   border-right-width: 1px;
-  background-color: #efefef;
+  background-color: #f0eef0;
   transition-property: background-color, color;
 }
 .modal__button--close:hover {
-  color: #efefef;
+  color: #f0eef0;
   background-color: #ef3205;
 }
 .modal__button--visit {
-  color: #efefef;
+  color: #f0eef0;
   border-left-width: 1px;
   background-color: #000;
   transition-property: color;
