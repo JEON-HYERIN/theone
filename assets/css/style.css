@@ -691,9 +691,6 @@ video {
     border-color: #000;
   }
 }
-.section-about__item.is-hover + .section-about__item .section-about__textbox {
-  background-color: #f0eef0;
-}
 .section-about__textbox {
   position: absolute;
   top: 0;
@@ -733,9 +730,6 @@ video {
     line-height: 1;
   }
 }
-.section-about__item.is-hover + .section-about__item .section-about__title {
-  display: none;
-}
 .section-about__description {
   position: absolute;
   bottom: 0;
@@ -747,15 +741,39 @@ video {
   width: 100%;
   height: 100%;
   padding: inherit;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: right;
+  background-color: #f0eef0;
+  pointer-events: none;
   opacity: 0;
   transform: translateY(10px);
-  transition-property: opacity, transform;
-  transition-duration: 0.5s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: transform;
+  transition-duration: 0.4s;
 }
-.section-about__item.is-hover + .section-about__item .section-about__description {
-  opacity: 1;
-  transform: translateY(0);
+@media screen and (min-width: 1024px) {
+  .section-about__description {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-about__description {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (min-width: 1536px) {
+  .section-about__description {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .section-about__description {
+    font-size: 3rem;
+    line-height: 1;
+  }
 }
 .section-about__thumbnail {
   position: relative;
@@ -802,25 +820,101 @@ video {
   bottom: 0;
   z-index: 1;
 }
-.section-about__cover svg {
-  animation-duration: 200ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+.section-about__cover .marquee__text {
+  font-size: 5rem;
+}
+@media screen and (min-width: 1536px) {
+  .section-about__cover .marquee__text {
+    font-size: 8rem;
+  }
 }
 .section-about__marquee {
   height: 178px;
-  overflow: hidden;
-  background-color: #ef3205;
 }
 @media screen and (min-width: 1024px) {
   .section-about__marquee {
     display: none;
   }
 }
-.section-about__marquee svg {
-  width: 100%;
+.marquee {
+  position: relative;
   height: 100%;
+  overflow: hidden;
+  background-color: #ef3205;
+  pointer-events: none;
 }
+.section-about__marquee .marquee {
+  display: none;
+}
+.section-about__marquee .marquee.is-visible {
+  display: flex;
+}
+.marquee__texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.marquee__texts:nth-child(2) .marquee__text:nth-child(2n) {
+  animation-name: marquee2-reverse;
+  transform: rotate(-35deg) translateX(50%);
+}
+.marquee__texts:nth-child(2) .marquee__text:nth-child(2n+1) {
+  animation-name: marquee2;
+  transform: rotate(-35deg) translateX(-50%);
+}
+.marquee__text {
+  display: block;
+  font-family: KunstBold, sans-serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  white-space: nowrap;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.marquee__text:nth-child(2n) {
+  animation-name: marquee-reverse;
+}
+.marquee__text:nth-child(2n+1) {
+  animation-name: marquee;
+}
+@keyframes marquee {
+  0% {
+    transform: rotate(-35deg) translateX(0);
+  }
+  100% {
+    transform: rotate(-35deg) translateX(-50%);
+  }
+}
+@keyframes marquee-reverse {
+  0% {
+    transform: rotate(-35deg) translateX(0);
+  }
+  100% {
+    transform: rotate(-35deg) translateX(50%);
+  }
+}
+@keyframes marquee2 {
+  0% {
+    transform: rotate(-35deg) translateX(100%);
+  }
+  100% {
+    transform: rotate(-35deg) translateX(50%);
+  }
+}
+@keyframes marquee2-reverse {
+  0% {
+    transform: rotate(-35deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(-35deg) translateX(-50%);
+  }
+}
+
 .section-about__copy {
   display: flex;
   align-items: flex-end;
@@ -844,14 +938,6 @@ video {
   }
 }
 
-@keyframes move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 .section-ingredient {
   width: 100vw;
   max-width: 100%;

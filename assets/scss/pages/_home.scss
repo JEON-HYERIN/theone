@@ -277,9 +277,6 @@
 				border-color: $color-black;
 			}
 		}
-		&.is-hover + & .section-about__textbox {
-			background-color: $color-white;
-		}
 	}
 
 	&__textbox {
@@ -318,14 +315,7 @@
 		}
 	}
 
-	&__title {
-		.section-about__item.is-hover+.section-about__item & {
-			display: none;
-		}
-	}
-
 	&__description {
-		//display: none;
 		position: absolute;
 		bottom: 0;
 		right: 0;
@@ -336,16 +326,30 @@
 		width: 100%;
 		height: 100%;
 		padding: inherit;
-		// background-color: $color-white;
+		font-size: 1rem;
+    line-height: 1.5rem;
+		text-align: right;
+		background-color: $color-white;
+		pointer-events: none;
 		opacity: 0;
 		transform: translateY(10px);
-		transition-property: opacity, transform;
-		transition-duration: .5s;
-		transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-
-		.section-about__item.is-hover+.section-about__item & {
-			opacity: 1;
-			transform: translateY(0);
+		transition-property: transform;
+		transition-duration: .4s;
+		@include desktop {
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+		@include desktop-medium {
+			font-size: 2rem;
+			line-height: 2.5rem;
+		}
+		@include desktop-large {
+			font-size: 2.5rem;
+			line-height: 3rem;
+		}
+		@media screen and (min-width: 1920px) {
+			font-size: 3rem;
+			line-height: 1;
 		}
 	}
 
@@ -393,25 +397,99 @@
 		right: 0;
 		bottom: 0;
 		z-index: 1;
-
-		svg {
-			//`animation-name: move;
-			animation-duration: 200ms;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
+		.marquee__text {
+			font-size: 5rem;
+			@include desktop-large {
+				font-size: 8rem;
+			}
 		}
 	}
 
 	&__marquee {
 		height: 178px;
-		overflow: hidden;
-		background-color: $color-primary;
 		@include desktop {
 			display: none;
 		}
-		svg {
-			width: 100%;
+		@at-root .marquee {
+			.section-about__marquee & {
+				display: none;
+			}
+			position: relative;
 			height: 100%;
+			overflow: hidden;
+			background-color: $color-primary;
+			pointer-events: none;
+			.section-about__marquee &.is-visible {
+				display: flex;
+			}
+			&__texts {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				&:nth-child(2) .marquee__text:nth-child(2n) {
+					animation-name: marquee2-reverse;
+					transform: rotate(-35deg) translateX(50%);
+				}
+				&:nth-child(2) .marquee__text:nth-child(2n+1) {
+					animation-name: marquee2;
+					transform: rotate(-35deg) translateX(-50%);
+				}
+			}
+			&__text {
+				display: block;
+				@include font-bold;
+				font-size: 3.2rem;
+				white-space: nowrap;
+				animation-duration: 20s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				&:nth-child(2n) {
+					animation-name: marquee-reverse;
+				}
+				&:nth-child(2n+1) {
+					animation-name: marquee;
+				}
+			}
+			@keyframes marquee {
+				0% {
+					transform: rotate(-35deg) translateX(0);
+				}
+			
+				100% {
+					transform: rotate(-35deg) translateX(-50%);
+				}
+			}
+			@keyframes marquee-reverse {
+				0% {
+					transform: rotate(-35deg) translateX(0);
+				}
+			
+				100% {
+					transform: rotate(-35deg) translateX(50%);
+				}
+			}
+			@keyframes marquee2 {
+				0% {
+					transform: rotate(-35deg) translateX(100%);
+				}
+			
+				100% {
+					transform: rotate(-35deg) translateX(50%);
+				}
+			}
+			@keyframes marquee2-reverse {
+				0% {
+					transform: rotate(-35deg) translateX(-100%);
+				}
+			
+				100% {
+					transform: rotate(-35deg) translateX(-50%);
+				}
+			}
 		}
 	}
 	&__copy {
@@ -430,16 +508,6 @@
 		@include desktop {
 			display: none;
 		}
-	}
-}
-
-@keyframes move {
-	0% {
-		transform: translateX(0);
-	}
-
-	100% {
-		transform: translateX(-100%);
 	}
 }
 
