@@ -397,6 +397,10 @@
 		right: 0;
 		bottom: 0;
 		z-index: 1;
+		&.is-visible,
+		&.is-visible .marquee {
+			display: block;
+		}
 		.marquee__text {
 			font-size: 5rem;
 			@include desktop-large {
@@ -411,16 +415,14 @@
 			display: none;
 		}
 		@at-root .marquee {
-			.section-about__marquee & {
-				display: none;
-			}
+			display: none;
 			position: relative;
 			height: 100%;
 			overflow: hidden;
 			background-color: $color-primary;
 			pointer-events: none;
-			.section-about__marquee &.is-visible {
-				display: flex;
+			&.is-visible {
+				display: block;
 			}
 			&__texts {
 				display: flex;

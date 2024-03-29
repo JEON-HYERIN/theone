@@ -820,6 +820,9 @@ video {
   bottom: 0;
   z-index: 1;
 }
+.section-about__cover.is-visible, .section-about__cover.is-visible .marquee {
+  display: block;
+}
 .section-about__cover .marquee__text {
   font-size: 5rem;
 }
@@ -837,17 +840,15 @@ video {
   }
 }
 .marquee {
+  display: none;
   position: relative;
   height: 100%;
   overflow: hidden;
   background-color: #ef3205;
   pointer-events: none;
 }
-.section-about__marquee .marquee {
-  display: none;
-}
-.section-about__marquee .marquee.is-visible {
-  display: flex;
+.marquee.is-visible {
+  display: block;
 }
 .marquee__texts {
   display: flex;

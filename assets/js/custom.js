@@ -162,14 +162,22 @@ mm.add("(min-width: 1024px)", () => {
 	})
 })
 hoverAbout();
-$(window).on('resize', hoverAbout);
+$(window).on('resize', function() {
+	$('.section-about__cover').removeClass('is-visible');
+	$('.section-about__description').removeAttr('style');
+	hoverAbout();
+});
 // about list mouse on & off event class toggle
 function hoverAbout() {
 	if($(window).width() >= 1024) {
 		$('.section-about__item').on('mouseenter', function() {
-			mm.add("(min-width: 1024px)", () => {
+				mm.add("(min-width: 1024px)", () => {
 				if($(this).index() === 0) {
-					hoverTl = gsap.timeline({});
+					hoverTl = gsap.timeline({
+						onStart: function() {
+							$('.section-about__item:nth-child(3) .section-about__cover').addClass('is-visible');
+						}
+					});
 					hoverTl
 					.set($('.section-about__item:nth-child(2) .section-about__description'), {
 						opacity: 1,
@@ -177,12 +185,13 @@ function hoverAbout() {
 					.to($('.section-about__item:nth-child(2) .section-about__description'), {
 						y: 0,
 					},'a')
-					.set($('.section-about__item:nth-child(3) .section-about__cover'), {
-						'display': 'block'
-					},'a')
 				}
 				if($(this).index() === 1) {
-					hoverTl = gsap.timeline({});
+					hoverTl = gsap.timeline({
+						onStart: function() {
+							$('.section-about__item:nth-child(1) .section-about__cover').addClass('is-visible');
+						}
+					});
 					hoverTl
 					.set($('.section-about__item:nth-child(3) .section-about__description'), {
 						opacity: 1,
@@ -190,12 +199,13 @@ function hoverAbout() {
 					.to($('.section-about__item:nth-child(3) .section-about__description'), {
 						y: 0,
 					},'a')
-					.set($('.section-about__item:nth-child(1) .section-about__cover'), {
-						'display': 'block'
-					},'a')
 				}
 				if($(this).index() === 2) {
-					hoverTl = gsap.timeline({});
+					hoverTl = gsap.timeline({
+						onStart: function() {
+							$('.section-about__item:nth-child(2) .section-about__cover').addClass('is-visible');
+						}
+					});
 					hoverTl
 					.set($('.section-about__item:nth-child(1) .section-about__description'), {
 						opacity: 1,
@@ -203,18 +213,16 @@ function hoverAbout() {
 					.to($('.section-about__item:nth-child(1) .section-about__description'), {
 						y: 0,
 					},'a')
-					.set($('.section-about__item:nth-child(2) .section-about__cover'), {
-						'display': 'block'
-					},'a')
 				}
 			})
-		});
-		
+		})
 		$('.section-about__item').on('mouseleave', function() {
-			$('.section-about__item *').removeAttr('style');
+			$('.section-about__cover').removeClass('is-visible');
+			$('.section-about__description').removeAttr('style');
 		});
 	} else {
-		$('.section-about__item *').removeAttr('style');
+		$('.section-about__cover').removeClass('is-visible');
+		$('.section-about__description').removeAttr('style');
 	}
 }
 
