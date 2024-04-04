@@ -274,7 +274,8 @@ initSwiper();
 $(window).on('resize', initSwiper);
 
 const headTxt = new SplitType('.section-story__description', {
-	types: 'words'
+	types: 'words',
+	tagName: 'span'
 });
 
 const words = document.querySelectorAll('.section-story__description .word');
