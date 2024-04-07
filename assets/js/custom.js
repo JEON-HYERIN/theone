@@ -23,9 +23,9 @@ const loadingMotion = gsap.timeline({
 loadingMotion
 .set('body', {overflow: 'hidden'})
 .to('.loading__text', {text: 'Sazonando la carne...', delay: 1, duration:2})
-.to('.loading__icon svg', {rotate: 180,duration: .5, ease: "power1.inOut"},"+=.4")
+.to('.loading__icon svg', {rotate: 180, duration: .5, ease: "power1.inOut"},"+=.4")
 .fromTo('.loading__text', {opacity: '.5'}, {text: 'Pelando las patatas fritas...', opacity: 1, duration:2}, "+=.7")
-.to('.loading__icon svg', {rotate: 360,duration: .5, ease: "power1.inOut"},"+=.4")
+.to('.loading__icon svg', {rotate: 360, duration: .5, ease: "power1.inOut"},"+=.4")
 .set('body', {overflow: 'auto'},"+=1")
 .to('.loading', {yPercent: -100, duration: .5, ease: "power2.out"},"+=0")
 .set('.loading', {display: 'none'}, "+=.5")
