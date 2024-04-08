@@ -168,6 +168,27 @@ body {
   clip: rect(0 0 0 0);
 }
 
+#skip-nav {
+  position: relative;
+  z-index: 20;
+}
+#skip-nav a {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  padding: 2px 6px 0 0;
+  text-align: center;
+  font-size: 13px;
+  line-height: 26px;
+  color: #f0eef0;
+  white-space: nowrap;
+  background-color: #333;
+}
+#skip-nav a:focus {
+  top: 0;
+}
+
 svg {
   display: block;
 }
@@ -399,7 +420,7 @@ video {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 20;
+  z-index: 30;
   overflow: hidden;
   background-color: #f0eef0;
 }
