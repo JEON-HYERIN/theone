@@ -7,6 +7,7 @@
 	z-index: $z-index--loading;
 	overflow: hidden;
 	background-color: $color-white;
+
 	&__inner {
 		display: flex;
 		justify-content: flex-end;
@@ -15,22 +16,27 @@
 		padding: 1rem;
 		width: 100%;
 		height: 100%;
+
 		@include not-mobile {
 			padding: 4rem;
 		}
 	}
+
 	&__text {
 		font-size: 1.25rem;
 		line-height: 1.75rem;
 		text-align: end;
+
 		@include not-mobile {
 			font-size: 2.25rem;
-    	line-height: 2.5rem;
+			line-height: 2.5rem;
 		}
+
 		@include desktop {
 			font-size: 3rem;
 			line-height: 1;
 		}
+
 		@include desktop-medium {
 			font-size: 4.5rem;
 			line-height: 1;
@@ -40,6 +46,7 @@
 
 .vertical-section {
 	height: calc(100vh - 2.75rem);
+
 	@include not-mobile {
 		height: calc(100vh - 5rem);
 	}
@@ -78,10 +85,12 @@
 		display: flex;
 		height: 66.666667%;
 		clip-path: inset(0 .5px);
+
 		@include desktop {
 			align-items: flex-end;
 			height: 83.333333%;
 		}
+
 		video {
 			max-height: 100%;
 		}
@@ -119,6 +128,7 @@
 		padding-right: 1rem;
 		border-top: 2px solid $color-black;
 		background-color: $color-white;
+
 		@include desktop {
 			padding-right: 5rem;
 			border-top: none;
@@ -135,6 +145,7 @@
 		transition-property: background-color, color;
 		transition-duration: 0.3s;
 		transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+
 		@include desktop {
 			gap: 1rem;
 		}
@@ -143,6 +154,7 @@
 			border-left-width: 2px;
 			border-style: solid;
 			border-color: $color-black;
+
 			@include desktop {
 				border-right-width: 2px;
 			}
@@ -187,6 +199,7 @@
 
 .section-story {
 	padding: 0 1rem;
+
 	&__inner {
 		padding: 6rem 0 4rem;
 		margin: 0 auto;
@@ -204,6 +217,7 @@
 		font-size: 1.875rem;
 		line-height: 1.25;
 		color: $color-dark-black;
+
 		@include not-mobile {
 			font-size: 2.25rem;
 		}
@@ -223,10 +237,12 @@
 
 	&__decoration {
 		margin: 0 -1rem;
+
 		video {
 			width: 100%;
 			object-fit: cover;
 			filter: brightness(0.995);
+
 			@include desktop {
 				height: 100%;
 			}
@@ -238,6 +254,7 @@
 	width: 100vw;
 	max-width: 100%;
 	overflow: hidden;
+
 	&__headline {
 		padding: 1rem;
 		@include font-medium;
@@ -271,7 +288,7 @@
 		overflow: hidden;
 
 		&:nth-child(2) {
-				@include desktop {
+			@include desktop {
 				border-width: 0 2px;
 				border-style: solid;
 				border-color: $color-black;
@@ -327,7 +344,7 @@
 		height: 100%;
 		padding: inherit;
 		font-size: 1rem;
-    line-height: 1.5rem;
+		line-height: 1.5rem;
 		text-align: right;
 		background-color: $color-white;
 		pointer-events: none;
@@ -335,18 +352,22 @@
 		transform: translateY(10px);
 		transition-property: transform;
 		transition-duration: .4s;
+
 		@include desktop {
 			font-size: 1.5rem;
 			line-height: 2rem;
 		}
+
 		@include desktop-medium {
 			font-size: 2rem;
 			line-height: 2.5rem;
 		}
+
 		@include desktop-large {
 			font-size: 2.5rem;
 			line-height: 3rem;
 		}
+
 		@media screen and (min-width: 1920px) {
 			font-size: 3rem;
 			line-height: 1;
@@ -357,6 +378,7 @@
 		position: relative;
 		overflow: hidden;
 		padding-bottom: 100%;
+
 		@include tablet {
 			.section-about__item.swiper-slide-active & {
 				border-width: 0 2px;
@@ -364,6 +386,7 @@
 				border-color: $color-black;
 			}
 		}
+
 		img {
 			position: absolute;
 			top: 0;
@@ -381,6 +404,7 @@
 
 			@include tablet {
 				opacity: .25;
+
 				@at-root .section-about__item.swiper-slide-active & {
 					opacity: 1;
 					transform: scale(1.25);
@@ -397,12 +421,15 @@
 		right: 0;
 		bottom: 0;
 		z-index: 1;
+
 		&.is-visible,
 		&.is-visible .marquee {
 			display: block;
 		}
+
 		.marquee__text {
 			font-size: 5rem;
+
 			@include desktop-large {
 				font-size: 8rem;
 			}
@@ -411,9 +438,11 @@
 
 	&__marquee {
 		height: 178px;
+
 		@include desktop {
 			display: none;
 		}
+
 		@at-root .marquee {
 			display: none;
 			position: relative;
@@ -421,9 +450,11 @@
 			overflow: hidden;
 			background-color: $color-primary;
 			pointer-events: none;
+
 			&.is-visible {
 				display: block;
 			}
+
 			&__texts {
 				display: flex;
 				flex-direction: column;
@@ -432,15 +463,18 @@
 				position: absolute;
 				left: 50%;
 				transform: translate(-50%, -50%);
+
 				&:nth-child(2) .marquee__text:nth-child(2n) {
 					animation-name: marquee2-reverse;
 					transform: rotate(-35deg) translateX(50%);
 				}
+
 				&:nth-child(2) .marquee__text:nth-child(2n+1) {
 					animation-name: marquee2;
 					transform: rotate(-35deg) translateX(-50%);
 				}
 			}
+
 			&__text {
 				display: block;
 				@include font-bold;
@@ -449,51 +483,58 @@
 				animation-duration: 20s;
 				animation-iteration-count: infinite;
 				animation-timing-function: linear;
+
 				&:nth-child(2n) {
 					animation-name: marquee-reverse;
 				}
+
 				&:nth-child(2n+1) {
 					animation-name: marquee;
 				}
 			}
+
 			@keyframes marquee {
 				0% {
 					transform: rotate(-35deg) translateX(0);
 				}
-			
+
 				100% {
 					transform: rotate(-35deg) translateX(-50%);
 				}
 			}
+
 			@keyframes marquee-reverse {
 				0% {
 					transform: rotate(-35deg) translateX(0);
 				}
-			
+
 				100% {
 					transform: rotate(-35deg) translateX(50%);
 				}
 			}
+
 			@keyframes marquee2 {
 				0% {
 					transform: rotate(-35deg) translateX(100%);
 				}
-			
+
 				100% {
 					transform: rotate(-35deg) translateX(50%);
 				}
 			}
+
 			@keyframes marquee2-reverse {
 				0% {
 					transform: rotate(-35deg) translateX(-100%);
 				}
-			
+
 				100% {
 					transform: rotate(-35deg) translateX(-50%);
 				}
 			}
 		}
 	}
+
 	&__copy {
 		display: flex;
 		align-items: flex-end;
@@ -501,12 +542,14 @@
 		padding: 1rem 1.5rem 1rem 1rem;
 		@include font-medium;
 		font-size: 1.5rem;
-    line-height: 2rem;
+		line-height: 2rem;
 		text-align: right;
+
 		@include not-mobile {
 			font-size: 1.875rem;
-    	line-height: 2.25rem;
+			line-height: 2.25rem;
 		}
+
 		@include desktop {
 			display: none;
 		}
@@ -562,10 +605,12 @@
 
 	&__item {
 		white-space: nowrap;
+
 		@include desktop {
 			font-size: 1.125rem;
 			line-height: 1.75rem;
 		}
+
 		.letter-wrapper {
 			&.scroll-move {
 				animation: scrollHorizontal 10s linear infinite;
@@ -588,25 +633,32 @@
 		@include font-medium;
 		overflow: hidden;
 	}
+
 	&__text {
 		flex-shrink: 0;
 		overflow: hidden;
+
 		&:nth-child(1) {
 			width: 75%;
 		}
 	}
 }
+
 @keyframes scrollHorizontal {
-	0%, 100% {
-			transform: translate(2%)
+
+	0%,
+	100% {
+		transform: translate(2%)
 	}
+
 	50% {
-			transform: translate(-30%)
+		transform: translate(-30%)
 	}
 }
 
 .section-package {
 	overflow: hidden;
+
 	&__inner {
 		display: flex;
 		flex-direction: column-reverse;
@@ -639,6 +691,7 @@
 			width: 100%;
 			object-fit: cover;
 			filter: brightness(0.995);
+
 			@include desktop {
 				height: 100vh;
 			}
@@ -648,6 +701,7 @@
 
 .section-faq {
 	padding-top: 2rem;
+
 	@include not-mobile {
 		padding-top: 9rem;
 	}
@@ -687,6 +741,7 @@
 		padding-right: 50px;
 		font-size: 18px;
 		text-align: left;
+
 		&::after {
 			content: '↑';
 			position: absolute;
@@ -729,6 +784,7 @@
 		padding: 1rem;
 		height: 9rem;
 		text-align: right;
+
 		@include desktop {
 			right: 3%;
 			padding: 2rem 1rem 2rem 4rem;
@@ -738,6 +794,7 @@
 	&__headline {
 		font-size: 1.875rem;
 		line-height: 2.25rem;
+
 		@include desktop {
 			font-size: 3.75rem;
 			line-height: 1;
@@ -751,6 +808,7 @@
 	&__description {
 		font-size: 1.25rem;
 		line-height: 1.75rem;
+
 		@include desktop {
 			font-size: 2.25rem;
 			line-height: 2.5rem;
@@ -763,6 +821,7 @@
 		width: 100vw;
 		max-width: 100%;
 		max-height: 700px;
+
 		@include not-mobile {
 			flex-direction: row;
 		}
@@ -815,36 +874,45 @@
 	justify-content: flex-end;
 	align-items: flex-end;
 	padding: 1rem;
+
 	&.is-invisible {
 		display: none;
 	}
+
 	&.is-static {
 		position: static;
 		padding: 0;
 	}
+
 	@include tablet {
 		display: none;
 	}
+
 	&__textbox {
 		font-size: 1.25rem;
 		line-height: 1.75rem;
 		text-align: right;
+
 		.is-static & {
 			display: none;
 		}
 	}
+
 	&__time {
 		display: flex;
 		align-items: flex-end;
 	}
+
 	&__copy {
 		display: none;
 		padding: 1rem;
 		border: 2px solid $color-black;
 		background-color: $color-white;
 	}
+
 	&__icon {
 		margin-left: .5rem;
+
 		svg {
 			animation-name: rotate;
 			animation-iteration-count: infinite;
@@ -867,83 +935,102 @@
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
+
 	&.is-open {
 		opacity: 1;
 		visibility: visible;
 		pointer-events: auto;
 	}
+
 	&__content {
 		position: relative;
 		z-index: 1;
 		max-width: 90%;
 		border: 2px solid $color-black;
 		background-color: $color-white;
+
 		@include not-mobile {
 			width: 850px;
 		}
 	}
+
 	&__close {
 		position: absolute;
 		top: 1rem;
 		right: 1rem;
 		color: $color-black;
+
 		&:hover {
 			color: $color-primary;
 		}
+
 		@include not-mobile {
 			top: 2rem;
 			right: 2rem;
 		}
+
 		svg {
 			fill: currentColor;
 		}
 	}
+
 	&__textbox {
 		padding: 1rem;
+
 		@include not-mobile {
 			padding: 2rem;
 		}
 	}
+
 	&__headline {
 		display: block;
 		margin-bottom: 1.5rem;
 		@include font-bold;
 		font-size: 1.5rem;
 		line-height: 2rem;
-		@include not-mobile	{ 
+
+		@include not-mobile {
 			font-size: 2.25rem;
 			line-height: 2.5rem;
 		}
+
 		span {
 			color: $color-primary;
 		}
 	}
+
 	&__description {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
 		font-size: 1.125rem;
 		line-height: 1.75rem;
+
 		@include not-mobile {
 			font-size: 1.5rem;
 			line-height: 2rem;
 		}
+
 		a {
 			text-decoration-line: underline;
 			transition: color .3s ease;
+
 			&:hover {
 				color: $color-primary;
 			}
 		}
 	}
+
 	&__buttons {
 		display: flex;
 		height: 2.75rem;
 		border-top: 2px solid $color-black;
+
 		@include not-mobile {
 			height: 5rem;
 		}
 	}
+
 	&__button {
 		display: flex;
 		justify-content: flex-end;
@@ -956,31 +1043,37 @@
 		border-width: 1px;
 		border-color: $color-black;
 		transition-duration: .3s;
+
 		@include not-mobile {
 			padding: .75rem .75rem .75rem 3rem;
 			font-size: 1.875rem;
-    		line-height: 2.25rem;
+			line-height: 2.25rem;
 		}
+
 		&--close {
 			color: $color-black;
 			border-right-width: 1px;
 			background-color: $color-white;
 			transition-property: background-color, color;
+
 			&:hover {
 				color: $color-white;
 				background-color: $color-primary;
 			}
 		}
+
 		&--visit {
 			color: $color-white;
 			border-left-width: 1px;
 			background-color: $color-black;
 			transition-property: color;
+
 			&:hover {
 				color: $color-primary;
 			}
 		}
 	}
+
 	&__dimmed {
 		position: absolute;
 		top: 0;
