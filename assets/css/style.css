@@ -253,7 +253,7 @@ video {
 .global-nav__item--white {
   flex-grow: 1;
 }
-.global-nav__button {
+.global-nav__link {
   position: relative;
   width: 100%;
   height: 100%;
@@ -267,15 +267,15 @@ video {
   line-height: 1;
 }
 @media screen and (min-width: 768px) {
-  .global-nav__button {
+  .global-nav__link {
     padding-left: 3rem;
     font-size: 1.875rem;
   }
 }
-.global-nav__item--white .global-nav__button {
+.global-nav__item--white .global-nav__link {
   color: #000;
 }
-.global-nav__item--black .global-nav__button {
+.global-nav__item--black .global-nav__link {
   border-width: 0 2px;
   border-style: solid;
   border-color: #000;
@@ -283,7 +283,7 @@ video {
   color: #f0eef0;
   white-space: nowrap;
 }
-.global-nav__item--red .global-nav__button {
+.global-nav__item--red .global-nav__link {
   color: #f0eef0;
   background-color: #ef3205;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -291,15 +291,15 @@ video {
   transition-duration: 0.3s;
 }
 @media screen and (min-width: 768px) {
-  .global-nav__item--red .global-nav__button {
+  .global-nav__item--red .global-nav__link {
     padding-bottom: 14px;
   }
 }
-.global-nav__item--red .global-nav__button:hover {
+.global-nav__item--red .global-nav__link:hover {
   color: #ef3205;
   background-color: #000;
 }
-.global-nav__item--red .global-nav__button svg {
+.global-nav__item--red .global-nav__link svg {
   width: 100%;
   height: 100%;
   max-width: 121px;
@@ -307,7 +307,7 @@ video {
   fill: currentColor;
 }
 @media screen and (min-width: 768px) {
-  .global-nav__item--red .global-nav__button svg {
+  .global-nav__item--red .global-nav__link svg {
     width: auto;
     height: auto;
     max-width: none;
@@ -324,7 +324,7 @@ video {
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.global-nav__button:hover .global-nav__arrow {
+.global-nav__link:hover .global-nav__arrow {
   max-width: 2rem;
   opacity: 1;
 }

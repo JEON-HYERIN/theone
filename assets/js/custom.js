@@ -30,19 +30,19 @@ loadingMotion
 .to('.loading', {yPercent: -100, duration: .5, ease: "power2.out"},"+=0")
 .set('.loading', {display: 'none'}, "+=.5")
 
-$('.global-nav__item--white').on('click', function() {
+$('.global-nav__item--white .global-nav__link').on('click', function() {
 	const headerHeight = $('.header').outerHeight(); 
 	const position = ($('.section-order').offset().top) - headerHeight;
 	
 	$('html, body').stop().animate({scrollTop: position}, 700);
 })
-$('.global-nav__item--black').on('click', function() {
+$('.global-nav__item--black .global-nav__link').on('click', function() {
 	const headlineHeight = $('.section-about__headline').outerHeight();
 	const position = $('.section-about').offset().top - headlineHeight;
 
 	$('html, body').stop().animate({scrollTop: position}, 700);
 })
-$('.global-nav__item--red').on('click', function() {
+$('.global-nav__item--red .global-nav__link').on('click', function() {
 	const position = $('.section-home').offset().top;
 	
 	$('html, body').stop().animate({scrollTop: position}, 700);
