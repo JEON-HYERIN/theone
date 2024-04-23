@@ -149,22 +149,22 @@ video {
 
 @font-face {
   font-family: KunstRegular;
-  src: url(../fonts/Kunst-72-Regular.otf) format("opentype");
+  src: url("../fonts/Kunst-72-Regular.otf") format("opentype");
   font-weight: 400;
 }
 @font-face {
   font-family: KunstMedium;
-  src: url(../fonts/Kunst-96-Medium.otf) format("opentype");
+  src: url("../fonts/Kunst-96-Medium.otf") format("opentype");
   font-weight: 500;
 }
 @font-face {
   font-family: KunstBold;
-  src: url(../fonts/Kunst-20-Bold.otf) format("opentype");
+  src: url("../fonts/Kunst-20-Bold.otf") format("opentype");
   font-weight: 700;
 }
 @font-face {
   font-family: KunstHeavy;
-  src: url(../fonts/Kunst-144-Heavy.otf) format("opentype");
+  src: url("../fonts/Kunst-144-Heavy.otf") format("opentype");
   font-weight: 900;
 }
 .common-headline {
