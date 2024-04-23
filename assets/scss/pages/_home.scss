@@ -354,6 +354,13 @@
 		@include desktop {
 			font-size: 1.5rem;
 			line-height: 2rem;
+
+			.text-show & {
+				transform: translateY(0);
+				opacity: 1;
+				visibility: visible;
+				transition: transform 1s, opacity .3s;
+			}
 		}
 
 		@include desktop-medium {
@@ -369,15 +376,6 @@
 		@media screen and (min-width: 1920px) {
 			font-size: 3rem;
 			line-height: 1;
-		}
-
-		.text-show & {
-			@include desktop {
-				transform: translateY(0);
-				opacity: 1;
-				visibility: visible;
-				transition: transform 1s, opacity .3s;
-			}
 		}
 	}
 
@@ -429,9 +427,10 @@
 		bottom: 0;
 		z-index: 1;
 
-		.ani-show &,
-		.ani-show & .marquee {
-			@include desktop {
+		@include desktop {
+
+			.ani-show &,
+			.ani-show & .marquee {
 				display: block;
 			}
 		}

@@ -776,6 +776,12 @@ video {
     font-size: 1.5rem;
     line-height: 2rem;
   }
+  .text-show .section-about__description {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 1s, opacity 0.3s;
+  }
 }
 @media screen and (min-width: 1280px) {
   .section-about__description {
@@ -793,14 +799,6 @@ video {
   .section-about__description {
     font-size: 3rem;
     line-height: 1;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .text-show .section-about__description {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-    transition: transform 1s, opacity 0.3s;
   }
 }
 .section-about__thumbnail {
