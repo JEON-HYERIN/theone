@@ -48,7 +48,7 @@ $('.global-nav__item--red .global-nav__link').on('click', function() {
 	$('html, body').stop().animate({scrollTop: position}, 700);
 })
 
-
+// video content
 let mm = gsap.matchMedia();
 mm.add("(max-width: 1023px)", () => {
 	const video = $('.section-story__decoration video');
@@ -161,6 +161,29 @@ mm.add("(min-width: 1024px)", () => {
 		}
 	})
 })
+
+// story
+const headTxt = new SplitType('.section-story__description', {
+	types: 'words',
+	tagName: 'span'
+});
+
+const words = document.querySelectorAll('.section-story__description .word');
+words.forEach(function(word, index) {
+	gsap.from(word, {
+		opacity: .2,
+		stagger: .1,
+		scrollTrigger :{
+			trigger: word,
+			start: 'top 60%',
+			end: 'bottom 60%',
+			scrub: 0,
+			// markers: true
+		}
+	})
+});
+
+// about
 if($(window).width() >= 1024) {
 	hoverAbout();
 } else {
@@ -193,17 +216,6 @@ function hoverAbout() {
 		$('.section-about__item').removeClass('text-show ani-show');
 	});
 }
-
-ScrollTrigger.create({
-	trigger: '.section-ingredient',
-	start: '-98% top',
-	// scrub: 0,
-	onUpdate: function(self) {
-		$('.section-ingredient__embedded video').get(0).play();
-	},
-	toggleActions: 'play none none reset',
-	// markers: true
-})
 
 const ani = gsap.timeline({
 	scrollTrigger: {
@@ -241,26 +253,19 @@ initSwiper();
 
 $(window).on('resize', initSwiper);
 
-const headTxt = new SplitType('.section-story__description', {
-	types: 'words',
-	tagName: 'span'
-});
+// ingredient
+ScrollTrigger.create({
+	trigger: '.section-ingredient',
+	start: '-98% top',
+	// scrub: 0,
+	onUpdate: function(self) {
+		$('.section-ingredient__embedded video').get(0).play();
+	},
+	toggleActions: 'play none none reset',
+	// markers: true
+})
 
-const words = document.querySelectorAll('.section-story__description .word');
-words.forEach(function(word, index) {
-	gsap.from(word, {
-		opacity: .2,
-		stagger: .1,
-		scrollTrigger :{
-			trigger: word,
-			start: 'top 60%',
-			end: 'bottom 60%',
-			scrub: 0,
-			// markers: true
-		}
-	})
-});
-
+// faq
 $('.section-faq__cta').click(function() {
 	$(this).parents('.section-faq__item').toggleClass('is-open');
 })
@@ -300,8 +305,7 @@ $(window).on('scroll', function() {
 	}
 })
 
-
-
+// floating clock
 $(window).on('resize', floatingObj);
 floatingObj();
 function floatingObj() {
@@ -320,6 +324,7 @@ function floatingObj() {
 	}
 }
 
+// modal
 $('.section-order__item--modal').on('click', function() {
 	$('body').css('overflow', 'hidden');
 	gsap.to('.modal', {
