@@ -253,6 +253,29 @@ initSwiper();
 
 $(window).on('resize', initSwiper);
 
+$('.section-about .marquee').each(function (index, el) {
+	let marqueeEl = '';
+
+	if($(this).hasClass('marquee--ternera')) {
+		for (let i = 0; i <= 12; i++) {
+			marqueeEl += `<span class="marquee__text">TERNERA THE ONE. TERNERA THE ONE. TERNERA THE ONE. TERNERA THE ONE. TERNERA THE ONE. TERNERA THE ONE.</span>`;
+		}
+		$(this).find('.marquee__texts').append(marqueeEl);
+	}
+	if($(this).hasClass('marquee marquee--pollo')) {
+		for (let i = 0; i <= 12; i++) {
+			marqueeEl += `<span class="marquee__text">POLLO THE ONE. POLLO THE ONE. POLLO THE ONE. POLLO THE ONE. POLLO THE ONE. POLLO THE ONE.</span>`;
+		}
+		$(this).find('.marquee__texts').append(marqueeEl);
+	}
+	if($(this).hasClass('marquee--veggie')) {
+		for (let i = 0; i <= 12; i++) {
+			marqueeEl += `<span class="marquee__text">VEGGIE THE ONE. VEGGIE THE ONE. VEGGIE THE ONE. VEGGIE THE ONE. VEGGIE THE ONE. VEGGIE THE ONE.</span>`;
+		}
+		$(this).find('.marquee__texts').append(marqueeEl);
+	}
+}); 
+
 // ingredient
 ScrollTrigger.create({
 	trigger: '.section-ingredient',
