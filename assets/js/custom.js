@@ -298,9 +298,8 @@ window.onload = function() {
 	// 스톱워치
 	let defaultTime = 0;
 	let timerStart;
-	window.addEventListener('load', function() {
-		defaultTime = new Date().getTime();
-	});
+
+	defaultTime = new Date().getTime();
 	
 	timerStart = () => {
 		const nowTime = new Date().getTime();
