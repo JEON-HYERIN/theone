@@ -767,11 +767,9 @@ video {
   line-height: 1.5rem;
   text-align: right;
   background-color: #f0eef0;
-  pointer-events: none;
+  transform: translateY(20px);
   opacity: 0;
-  transform: translateY(10px);
-  transition-property: transform;
-  transition-duration: 0.4s;
+  visibility: hidden;
 }
 @media screen and (min-width: 1024px) {
   .section-about__description {
@@ -795,6 +793,14 @@ video {
   .section-about__description {
     font-size: 3rem;
     line-height: 1;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .text-show .section-about__description {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 1s, opacity 0.3s;
   }
 }
 .section-about__thumbnail {
@@ -842,8 +848,10 @@ video {
   bottom: 0;
   z-index: 1;
 }
-.section-about__cover.is-visible, .section-about__cover.is-visible .marquee {
-  display: block;
+@media screen and (min-width: 1024px) {
+  .ani-show .section-about__cover, .ani-show .section-about__cover .marquee {
+    display: block;
+  }
 }
 .section-about__cover .marquee__text {
   font-size: 5rem;

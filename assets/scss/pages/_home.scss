@@ -347,11 +347,9 @@
 		line-height: 1.5rem;
 		text-align: right;
 		background-color: $color-white;
-		pointer-events: none;
+		transform: translateY(20px);
 		opacity: 0;
-		transform: translateY(10px);
-		transition-property: transform;
-		transition-duration: .4s;
+		visibility: hidden;
 
 		@include desktop {
 			font-size: 1.5rem;
@@ -371,6 +369,15 @@
 		@media screen and (min-width: 1920px) {
 			font-size: 3rem;
 			line-height: 1;
+		}
+
+		.text-show & {
+			@include desktop {
+				transform: translateY(0);
+				opacity: 1;
+				visibility: visible;
+				transition: transform 1s, opacity .3s;
+			}
 		}
 	}
 
@@ -422,9 +429,11 @@
 		bottom: 0;
 		z-index: 1;
 
-		&.is-visible,
-		&.is-visible .marquee {
-			display: block;
+		.ani-show &,
+		.ani-show & .marquee {
+			@include desktop {
+				display: block;
+			}
 		}
 
 		.marquee__text {
