@@ -214,7 +214,7 @@ window.onload = function() {
 		});
 	}
 	
-	const ani = gsap.timeline({
+	const aboutTl = gsap.timeline({
 		scrollTrigger: {
 			trigger: '.section-about',
 			start: '-80% top',
@@ -223,8 +223,7 @@ window.onload = function() {
 			// markers: true,
 		}
 	});
-	ani.addLabel('t1')
-	.fromTo('.section-about__headline', {xPercent: 100}, {xPercent: -100, duration: 10});
+	aboutTl.fromTo('.section-about__headline', {xPercent: 100}, {xPercent: -100, duration: 10});
 	
 	let aboutSwiper = undefined;
 	function initSwiper() {
