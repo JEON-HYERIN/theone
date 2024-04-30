@@ -25,12 +25,12 @@ window.onload = function() {
 	});
 	loadingMotion
 	.to('.loading__text', {text: 'Sazonando la carne...', delay: 1, duration:2})
-	.to('.loading__icon svg', {rotate: 180, duration: .5, ease: "power1.inOut"},"+=.4")
-	.fromTo('.loading__text', {opacity: '.5'}, {text: 'Pelando las patatas fritas...', opacity: 1, duration:2}, "+=.7")
-	.to('.loading__icon svg', {rotate: 360, duration: .5, ease: "power1.inOut"},"+=.4")
-	.set('body', {overflow: 'auto'},"+=1")
-	.to('.loading', {yPercent: -100, duration: .5, ease: "power2.out"},"+=0")
-	.set('.loading', {display: 'none'}, "+=.5")
+	.to('.loading__icon svg', {rotate: 180, duration: .5, ease: 'power1.inOut'}, '+=.4')
+	.fromTo('.loading__text', {opacity: '.5'}, {text: 'Pelando las patatas fritas...', opacity: 1, duration:2}, '+=.7')
+	.to('.loading__icon svg', {rotate: 360, duration: .5, ease: 'power1.inOut'}, '+=.4')
+	.set('body', {overflow: 'auto'}, '+=1')
+	.to('.loading', {yPercent: -100, duration: .5, ease: 'power2.out'}, '+=0')
+	.set('.loading', {display: 'none'}, '+=.5')
 	
 	// nav
 	$('.global-nav__item--white .global-nav__link, .global-nav__item--black .global-nav__link').on('click', function() {
@@ -332,13 +332,13 @@ window.onload = function() {
 		if(windowSize >= 1024) {
 			$('.floating-clock').on('mouseenter', function() {
 				const tl = gsap.timeline({});
-				tl.set('.floating-clock__time', {display: 'none'}, "+=0")
-				.set('.floating-clock__copy', {display: 'block'}, "+=0")
+				tl.set('.floating-clock__time', {display: 'none'}, '+=0')
+				.set('.floating-clock__copy', {display: 'block'}, '+=0')
 			})
 			$('.floating-clock').on('mouseleave', function() {
 				const tl = gsap.timeline({});
-				tl.set('.floating-clock__time', {display: 'block'}, "+=0")
-				.set('.floating-clock__copy', {display: 'none'}, "+=0")
+				tl.set('.floating-clock__time', {display: 'block'}, '+=0')
+				.set('.floating-clock__copy', {display: 'none'}, '+=0')
 			})
 		}
 	}
@@ -392,5 +392,4 @@ window.onload = function() {
 			}
 		})
 	}
-
 }
